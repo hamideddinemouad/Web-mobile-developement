@@ -616,13 +616,13 @@ footer
 }
 .form-title
 {
-    height: 15%;
+    height: 5%;
     width: 100%;
     background-color: blue;
 }
 .form-description
 {
-    height: 15%;
+    height: 5%;
     width: 100%;
     background-color: cyan;
 }

@@ -31,7 +31,11 @@
     font-weight: 600;
     line-height: 33px;
     text-align: left;
-
+}
+#navigation ul a
+{
+    color: #F5F5F5;
+    text-decoration: none;
 }
 #background-image
 {

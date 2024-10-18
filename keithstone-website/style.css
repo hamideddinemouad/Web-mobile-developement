@@ -216,7 +216,7 @@ h1
     text-align: center;
     color: #5D5D5D;
 }
-#learn-more
+/* #learn-more
 {
     width: 202px;
     height: 63px;
@@ -230,7 +230,7 @@ h1
     color: #F9F6F1;
     cursor: pointer;
     text-align: left;
-}
+} */
 h2
 {
     display: flex;
@@ -435,6 +435,7 @@ footer
 .middle-foot
 {
     display: flex;
+    flex-wrap: wrap;
     height: 50%;
     width: 100%;
 }

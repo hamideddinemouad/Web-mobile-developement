@@ -424,7 +424,7 @@ footer
     background-image: url(images/footer-back.png);
     background-position: center;
     background-size: cover;
-    height: 400px;
+    height: 633px;
 }
 .top-footer
 {
@@ -446,31 +446,54 @@ footer
 }
 #logo-img
 {
-    background-color: #F5F5F5;
+    /* background-color: #F5F5F5; */
     height: 100%;
     width: 50%;
 }
 #follow-us
 {
-    background-color: aqua;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1%;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29.05px;
+    text-align: left;
+    color: #E9BD8D;
     height: 100%;
     width: 50%;
 }
 #about-us
 {
-    background-color: red;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 10%;
     height: 100%;
     width: 33.33%;
 }
 #news
 {
-    background-color: blue;
+    margin-top: 5%;
+    /* background-color: blue; */
     width: 33.33%;
     height: 100%;
 }
+#another-one
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #explore
 {
-    background-color:darkblue;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* background-color:darkblue; */
     width: 33.33%;
     height: 100%;
 }
@@ -479,4 +502,31 @@ footer
     background-color: grey;
     height: 100%;
     width: 100%;
+}
+.titles
+{
+    font-family: "Inter", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43.57px;
+    text-align: left;
+    color: #E9BD8D;
+}
+.phone-number
+{
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: left;
+    color: #F5F5F5;
+}
+.footer-typo
+{
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    text-align: left;
+    color:#F5F5F5;
 }

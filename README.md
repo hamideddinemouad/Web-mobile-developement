@@ -1,1 +1,2 @@
-# Web-mobile-developement tasks each folder contains a task each project contains a README with the context of the project
+Chaque dossier contient un projet, et chaque projet comprend un fichier README qui fournit le contexte du projet.
+Each folder contains a project, and each project includes a README file that provides context for the project.

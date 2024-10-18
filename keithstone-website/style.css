@@ -421,42 +421,62 @@ h3
 }
 footer
 {
-    display: grid;
     background-image: url(images/footer-back.png);
     background-position: center;
     background-size: cover;
     height: 400px;
 }
-.top-part
+.top-footer
 {
-    background-color: #111111;
-}
-.about-us-part
-{
-    background-color: #B9B9B9;
-    height: 100%;
-    font-size: 15px;
     display: flex;
-    justify-content:space-around;
-    gap: 80%;
+    height: 40%;
+    width: 100%;
 }
-.follow-us
+.middle-foot
 {
-    font-size: 100px;
-    color: #F9F6F1;
+    display: flex;
+    height: 50%;
+    width: 100%;
 }
-.explore-part
+.foot-footer
 {
-    background-color:aqua;
+    display: flex;
+    height: 10%;
+    width: 100%;
+}
+#logo-img
+{
+    background-color: #F5F5F5;
     height: 100%;
+    width: 50%;
 }
-.recent-news
+#follow-us
+{
+    background-color: aqua;
+    height: 100%;
+    width: 50%;
+}
+#about-us
+{
+    background-color: red;
+    height: 100%;
+    width: 33.33%;
+}
+#news
 {
     background-color: blue;
+    width: 33.33%;
     height: 100%;
 }
-.mark
+#explore
 {
-    background-color:chartreuse;
+    background-color:darkblue;
+    width: 33.33%;
     height: 100%;
+}
+#copyright
+{
+    background-color: grey;
+    height: 100%;
+    width: 100%;
 }

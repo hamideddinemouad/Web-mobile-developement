@@ -608,3 +608,27 @@ footer
     text-align: left;
     color :#737373 
 }
+#contact-us
+{
+    height: 100%;
+    width: 100%;
+    background-color: #933C24;
+}
+.form-title
+{
+    height: 15%;
+    width: 100%;
+    background-color: blue;
+}
+.form-description
+{
+    height: 15%;
+    width: 100%;
+    background-color: cyan;
+}
+.form-places
+{
+    height: 70%;
+    width: 100%;
+    background-color: red;
+}

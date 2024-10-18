@@ -612,7 +612,7 @@ footer
 {
     height: 100%;
     width: 100%;
-    background-color: #933C24;
+    /* background-color: #933C24; */
 }
 .form-title
 {
@@ -626,9 +626,37 @@ footer
     width: 100%;
     background-color: cyan;
 }
-.form-places
+form
 {
     height: 70%;
     width: 100%;
-    background-color: red;
+    /* background-color: red; */
+    color: #F9F6F1;
+}
+input[type="text"], input[type="email"]
+{
+    border: 10px solid #ffffff;
+    background-color: rgba(255, 255, 255, 0);
+}
+form div
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+.name-f-t, .phone-f-t, .email-f-t
+{
+    height: 33.33%;
+    width: 100%;
+}
+.phone-f-t div:nth-child(2)
+{
+    margin-right: 1.5%;
+}
+.form-title, .form-description
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

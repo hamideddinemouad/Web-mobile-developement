@@ -618,13 +618,13 @@ footer
 {
     height: 5%;
     width: 100%;
-    background-color: blue;
+    /* background-color: blue; */
 }
 .form-description
 {
     height: 5%;
     width: 100%;
-    background-color: cyan;
+    /* background-color: cyan; */
 }
 form
 {
@@ -633,7 +633,7 @@ form
     /* background-color: red; */
     color: #F9F6F1;
 }
-input[type="text"], input[type="email"]
+input[type="text"], input[type="email"], input[type="tel"]
 {
     border: 10px solid #ffffff;
     background-color: rgba(255, 255, 255, 0);
@@ -650,13 +650,32 @@ form div
     height: 33.33%;
     width: 100%;
 }
-.phone-f-t div:nth-child(2)
+.phone-f-t div:nth-child(1)
 {
-    margin-right: 1.5%;
+    display: flex;
+    flex-direction: column;
+    /* margin-right: 2%; */
 }
 .form-title, .form-description
 {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Sansita Swashed", system-ui;
+    font-size: 200%;
+    color: white;
+}
+label, .phone-f-t div span
+{
+    font-family: "Sansita Swashed", system-ui;
+    font-size: 200%;
+    color: white;
+}
+input[type="submit"]
+{
+    border: 10px solid #000000;
+    background-color: rgba(255, 255, 255, 0);
+    font-family: "Sansita Swashed", system-ui;
+    padding: 15px 32px;
+    font-size: 200%;
 }

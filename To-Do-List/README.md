@@ -1,8 +1,8 @@
-# Contexte du projet
+# <span style="color: #4A90E2;">Contexte du projet</span>
 
 La start-up TaskFlow veut rendre son équipe de développement plus efficace en installant un système simple pour gérer les tâches. L'application aidera les utilisateurs à créer, suivre et organiser leurs tâches, tout en simplifiant la planification des projets.
 
-## USER STORIES
+## <span style="color: #50E3C2;">USER STORIES</span>
 
 - **En tant que développeur Front-End**, je vais implémenter une page d'accueil présentant la To Do List avec une structure HTML et CSS soignée, en utilisant Tailwind CSS pour assurer une apparence moderne et cohérente sur tous les écrans.
 
@@ -24,7 +24,7 @@ La start-up TaskFlow veut rendre son équipe de développement plus efficace en 
 
 - **En tant que membre de l'équipe**, je vais déployer le projet en ligne via GitHub Pages ou Vercel pour le rendre accessible à tous les utilisateurs et faciliter les tests sur différents appareils et navigateurs.
 
-## BONUS
+## <span style="color: #F5A623;">BONUS</span>
 
 - **En tant que développeur Front-End**, je vais créer un modal permettant d'ajouter plusieurs tâches. Ce modal contiendra des champs pour le titre, la description, la date d’échéance, et la priorité de la tâche (P1, P2, P3), et un bouton "+" pour ajouter les champs pour insérer plus de tâches.
 
@@ -40,7 +40,7 @@ La start-up TaskFlow veut rendre son équipe de développement plus efficace en 
 
 - **En tant que développeur Front-End**, je vais inclure un algorithme pour trier automatiquement les tâches par date d'échéance ou priorité pour faciliter leur gestion chronologique.
 
-## Modalités pédagogiques
+## <span style="color: #4A90E2;">Modalités pédagogiques</span>
 
 Vous disposez de 5 jours en autonomie pour réaliser le brief en utilisant les technologies appropriées.
 
@@ -48,14 +48,14 @@ Vous disposez de 5 jours en autonomie pour réaliser le brief en utilisant les t
 
 Aidez-vous les uns les autres.
 
-## Modalités d'évaluation
+## <span style="color: #F5A623;">Modalités d'évaluation</span>
 
 **Présentation de 20 minutes :**
 - 5 minutes : Démonstration de livrable.
 - 10 minutes : Explication partie code.
 - 5 minutes : évaluation des savoirs (Q/A)
 
-## Livrables
+## <span style="color: #50E3C2;">Livrables</span>
 
 **Livrable : 5ème jour**
 - Un lien vers le site web hébergé sur GitHub Pages.
@@ -65,7 +65,7 @@ Aidez-vous les uns les autres.
 
 Un rapport englobant l'ensemble des tâches et des points abordés sera partagé par e-mail vers la fin du projet.
 
-## Critères de performance
+## <span style="color: #4A90E2;">Critères de performance</span>
 
 - Bonne maîtrise et compréhension du code.
 - Site qui respecte les normes W3C.

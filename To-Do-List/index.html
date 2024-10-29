@@ -22,37 +22,38 @@
         </nav>
     </header>
     <!-- adding note  BEGIN-->
-     <div>
-        <form action="">
-            <div class="flex items-start justify-around">
+     <div class="">
+        <form   id="newNote" class="flex items-center justify-center flex-col gap-3 mb-5 hidden" action="">
             <label for="taskname">Name of the task: </label>
-            <input class="border-[#fb8500] border-2 rounded-xl" type="text" id="taskname" name="taskname" required>
-            </div>
-            <div class="flex items-start justify-around">
-            <label for="echeance">End date </label>
-            <input class="border-[#fb8500] border-2 rounded-xl" type="date" id="echeance" name="echeance" required>
-            </div>
-            <div class="flex items-start justify-around">
-                <label for="description">Description: </label>
-                <input class="border-[#fb8500] border-2 rounded-xl" type="text" id="description" name="description" required>
-            </div>
-            <div class="flex items-start justify-around">
+            <input class="border-[#fb8500] border-2 rounded-xl min-w-[200px]" type="text" id="taskname" name="taskname" required>
+            <label for="echeance">End date:</label>
+            <input class="border-[#fb8500] border-2 rounded-xl min-w-[200px]" type="date" id="echeance" name="echeance" required>
+                <label for="description">Description:</label>
+                <input class="border-[#fb8500] border-2 rounded-xl min-w-[200px]" type="text" id="description" name="description" required>
+            <!-- <div class=""> -->
                 <label for="priority">Priority:</label>
-                <select name="priority" id="priority">
-                    <option value="p1">P1(HIGH PRIORITY)</option>
+                <select class="border-[#fb8500] border-2 rounded-xl min-w-[200px]" name="priority" id="priority">
+                    <option value="p1" selected>Default: P1(HIGH PRIORITY)</option>
                     <option value="p2">P2(MEDHUIM PRIORITY)</option>
                     <option value="p3">P3(LOW PRIORITY)</option>
                 </select>
-            </div>
-            <div class="flex items-start justify-around">
-                <button class="border-[#fb8500] border-2 rounded-xl type="submit">Add Task</button>
-            </div>
+                <label for="status">Status:</label>
+                <select class="border-[#fb8500] border-2 rounded-xl min-w-[200px]" name="status" id="status">
+                    <option value="todo" selected>Default: To do</option>
+                    <option value="doing">Doing</option>
+                    <option value="done">Done</option>
+                </select>
+            <!-- </div> -->
+             <button type="submit" class="border-[#219ebc] border-2 rounded-xl">Add Task</button>
+                <!-- <button  type="submit" class="border-[#fb8500] border-2 rounded-xl Add Task</butto> -->
+            <button id="cancel" type="button" class="border-[#219ebc] border-2 rounded-xl">Cancel</button>
         </form>
      </div>
      <!-- adding note  END-->
-    <section class="bg-[#8ecae6]">
-        notes section
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, quae? Cupiditate quidem officiis rem quis magni aperiam molestiae fuga ab laborum maxime iusto voluptatem facere unde dolorem, recusandae architecto perspiciatis.
+    <section class="bg-[#8ecae6] grid grid-cols-3 grid-rows-auto border border-gray-800">
+        <div>To do</div>
+        <div>Doing</div>
+        <div>Done</div>
     </section>
     <footer>
     </footer>

@@ -38,7 +38,7 @@ newNoteForm.addEventListener("submit", (event) =>
     li.innerHTML = taskname.value;
     // console.log("AFTER li = " + li);
     // console.log("AFTER li.inner = " + li.innerHTML);
-    const toDoTasks = document.getElementById('toDoTasks');;;
+    const toDoTasks = document.getElementById('toDoTasks');
     toDoTasks.appendChild(li);
     newNoteForm.classList.toggle("hidden");
     // console.log(taskname.value);

@@ -154,9 +154,18 @@ newNoteForm.addEventListener("submit", (event) =>
     // create a ul and append it to to do tasks
     // when you want to show on click it will show all infos toggle hidden like before
 
-    
+
+
     let column;
     let ul = document.createElement('ul');
+
+    let liDelete = document.createElement('li');
+    let buttonDelete = document.createElement('button');
+    buttonDelete.textContent = "Delete";
+    liDelete.appendChild(buttonDelete);
+    liDelete.classList.add("hidden");
+    //thebutton is created it needs an event listener
+    //use previous sibling to find the taskname
 
     let liStatus = document.createElement('li');
     liStatus.innerText = statusCurrent.value;
@@ -196,6 +205,7 @@ newNoteForm.addEventListener("submit", (event) =>
         liEcheance.classList.toggle("hidden");
         liDescripton.classList.toggle("hidden");
         liPriority.classList.toggle("hidden");
+        liDelete.classList.toggle("hidden");
         // liStatus.classList.toggle("hidden");
     })
 
@@ -204,6 +214,7 @@ newNoteForm.addEventListener("submit", (event) =>
     ul.appendChild(liPriority);
     ul.appendChild(liDescripton);
     ul.appendChild(liEcheance);
+    ul.appendChild(liDelete);
 
     if (liStatus.innerText === "todo")
         {
@@ -220,7 +231,9 @@ newNoteForm.addEventListener("submit", (event) =>
             column = document.getElementById("doneTasks");
             column.appendChild(ul);
         }
+    liDelete.addEventListener("click", () => {
 
+    })
     let notes = JSON.parse(localStorage.getItem("notes")) || [];
     notes.push({
         taskNameStorage : taskNameCurrent.value,
@@ -236,6 +249,7 @@ newNoteForm.addEventListener("submit", (event) =>
     // i'm thinking i already incorporated local storage why not incorporate it fully
     // i just have to repeat what i've done for the task for each task i retrieve and put it in it's place
     // but i'm thinking of the styling come on that's the easy part you can always add it later
+
     // changing status and deleting let's say you put an icon for delete first it gotta go dynamically meaning
     // the icon should be added when the ul is (in my opinion make a new li that will show when note is clicked
     //let's say you put the icon in it's correct place when

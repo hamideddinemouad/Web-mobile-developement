@@ -40,16 +40,76 @@ const cancel = document.getElementById('cancel');
 if (localStorage.getItem("notes"))
 {
     stored = JSON.parse(localStorage.getItem("notes"))
+    
     // console.log(stored);
     // console.log(stored[0].taskNameStorage);
-    // for (let opened of stored)
-    // {
-    //     // console.log("opened = " + opened.taskNameStorage);
-    //     const li = document.createElement('li');
-    //     li.innerHTML = opened.taskNameStorage;
-    //     const toDoTasks = document.getElementById('toDoTasks');
-    //     toDoTasks.appendChild(li);
-    // }
+    for (let opened of stored)
+    {
+            // console.log("opened = " + opened.taskNameStorage);
+            let column;
+            let ul = document.createElement('ul');
+        
+            let liStatus = document.createElement('li');
+            liStatus.innerText = opened.statusStorage;
+            liStatus.classList.add("hidden");
+        
+            let liPriority = document.createElement('li');
+            liPriority.innerText = opened.priorityStorage;
+            liPriority.classList.add("hidden");
+        
+            
+            let liName = document.createElement('li');
+            liName.innerText = opened.taskNameStorage;
+            if (liPriority.innerText === "p1")
+            {
+                liName.style.color = "#da2c38";
+            }
+            else if(liPriority.innerText === "p2")
+            {
+                liName.style.color = "#43291f";
+            }
+            else if (liPriority.innerText === "p3")
+            {
+                liName.style.color = "#226f54";
+            }
+    
+            let liDescripton = document.createElement('li');
+            liDescripton.innerText = opened.descriptionStorage;
+            liDescripton.classList.add("hidden");
+        
+            let liEcheance = document.createElement('li');
+            liEcheance.innerText = opened.echeanceStorage;
+            liEcheance.classList.add("hidden");
+        
+            liName.addEventListener("click", () => 
+            {
+                liEcheance.classList.toggle("hidden");
+                liDescripton.classList.toggle("hidden");
+                liPriority.classList.toggle("hidden");
+            })
+        
+            ul.appendChild(liName);
+            ul.appendChild(liStatus);
+            ul.appendChild(liPriority);
+            ul.appendChild(liDescripton);
+            ul.appendChild(liEcheance);
+        
+            if (liStatus.innerText === "todo")
+                {
+                    column = document.getElementById('toDoTasks');
+                    column.appendChild(ul);
+                }
+            else if (liStatus.innerText === "doing")
+                {
+                    column = document.getElementById("doingTasks");
+                    column.appendChild(ul);
+                }
+            else if (liStatus.innerText === "done")
+                {
+                    column = document.getElementById("doneTasks");
+                    column.appendChild(ul);
+                }
+    }
     // const li = document.createElement('li');
     // li.innertext = taskname.value;
     // const toDoTasks = document.getElementById('toDoTasks');
@@ -87,7 +147,6 @@ newNoteForm.addEventListener("submit", (event) =>
     const echeanceCurrent = document.getElementById('echeance');
     const priorityCurrent = document.getElementById('priority');
     const statusCurrent = document.getElementById('status');
-
     //now i want the info to show but where to store it and how to
     //retrieve it because this function will end and i my storage
     //will be deleted with it i think i should store it in html
@@ -171,22 +230,22 @@ newNoteForm.addEventListener("submit", (event) =>
         statusStorage : statusCurrent.value,
     });
     localStorage.setItem('notes', JSON.stringify(notes));
-    // console.log("firstchild = " + firstchild.innerText);
-    // console.log("typeof (firstchild )= " + typeof(firstchild));
-    // console.log(JSON.stringify(firstchild, null, 2));
-    // console.log("firstchild[0] " + firstchild[0].innerText);
+    // location.reload()
 
-
-    // console.log("notes.length = " +notes.length);
-    // console.log(notes);
-    // console.log(notes[0].taskNameStorage);
     //ok it's stored but now how to retrieve it well i know how to retrieve it lol
     // i'm thinking i already incorporated local storage why not incorporate it fully
     // i just have to repeat what i've done for the task for each task i retrieve and put it in it's place
     // but i'm thinking of the styling come on that's the easy part you can always add it later
-    // console.log(noteData.taskNameStorage);
-    // console.log(noteData);
-    // 
+    // changing status and deleting let's say you put an icon for delete first it gotta go dynamically meaning
+    // the icon should be added when the ul is (in my opinion make a new li that will show when note is clicked
+    //let's say you put the icon in it's correct place when
+    //clicked it gotta delete the ul and update database and to do so you gotta look for it in the database
+    //find it delete it and theeeen update
+    //how about status when the change status button clicked you gotta ask user to give you what new status
+    //then when user chooses you go update the corresponding li of the task then something gotta trigger the
+    //change of position according to the new status or i can make a copy of the element change it's status
+    //delete the previous place the new one in database and the one will trigger all this is the button
+    //that submits the new user modification
 })
 
 // const userData = {

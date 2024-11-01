@@ -39,8 +39,8 @@ const cancel = document.getElementById('cancel');
 
 if (localStorage.getItem("notes"))
 {
-    stored = JSON.parse(localStorage.getItem("notes"))
-    
+    stored = JSON.parse(localStorage.getItem("notes"));
+
     // console.log(stored);
     // console.log(stored[0].taskNameStorage);
     for (let opened of stored)
@@ -49,6 +49,12 @@ if (localStorage.getItem("notes"))
             let column;
             let ul = document.createElement('ul');
         
+            let liDelete = document.createElement('li');
+            let buttonDelete = document.createElement('button');
+            buttonDelete.textContent = "Delete";
+            liDelete.appendChild(buttonDelete);
+            liDelete.classList.add("hidden");
+
             let liStatus = document.createElement('li');
             liStatus.innerText = opened.statusStorage;
             liStatus.classList.add("hidden");
@@ -60,6 +66,97 @@ if (localStorage.getItem("notes"))
             
             let liName = document.createElement('li');
             liName.innerText = opened.taskNameStorage;
+
+            let liModify = document.createElement('li');
+            let toDoModify = document.createElement('button');
+            toDoModify.textContent = "To Do";
+            let doingModify = document.createElement('button');
+            doingModify.textContent = "Doing";
+            let doneModify = document.createElement('button');
+            doneModify.textContent = "Done ";
+        
+            liModify.appendChild(toDoModify);
+            liModify.appendChild(doingModify);
+            liModify.appendChild(doneModify);
+            liModify.classList.add("flex", "justify-between", "hidden");
+
+            toDoModify.addEventListener("click", () => {
+                noteTitle = toDoModify.parentElement;
+                for (let i = 0; i < 6; i++)
+                {
+                    noteTitle = noteTitle.previousElementSibling;
+                    // console.log("element = " + noteTitle.textContent);
+                }
+                // // console.log("element = " + noteTitle.textContent);
+                noteTitle = noteTitle.textContent;
+                data = JSON.parse(localStorage.getItem("notes"));
+                let index = 0;
+                for (let opened of data)
+                {
+                //     //i was trying to access the name storage to delete it from database
+                    if (opened.taskNameStorage === noteTitle)
+                    {
+                        opened.statusStorage = "todo"
+                        // data.splice(index, 1);
+                        break;
+                    }
+                    index++;
+                }
+                localStorage.setItem("notes", JSON.stringify(data));
+                location.reload();
+            })
+        
+            doingModify.addEventListener("click", () => {
+                noteTitle = doingModify.parentElement;
+                for (let i = 0; i < 6; i++)
+                {
+                    noteTitle = noteTitle.previousElementSibling;
+                    // console.log("element = " + noteTitle.textContent);
+                }
+                // // console.log("element = " + noteTitle.textContent);
+                noteTitle = noteTitle.textContent;
+                data = JSON.parse(localStorage.getItem("notes"));
+                let index = 0;
+                for (let opened of data)
+                {
+                //     //i was trying to access the name storage to delete it from database
+                    if (opened.taskNameStorage === noteTitle)
+                    {
+                        opened.statusStorage = "doing"
+                        // data.splice(index, 1);
+                        break;
+                    }
+                    index++;
+                }
+                localStorage.setItem("notes", JSON.stringify(data));
+                location.reload();
+            })
+            doneModify.addEventListener("click", () => {
+                noteTitle = doneModify.parentElement;
+                for (let i = 0; i < 6; i++)
+                {
+                    noteTitle = noteTitle.previousElementSibling;
+                    // console.log("element = " + noteTitle.textContent);
+                }
+                // // console.log("element = " + noteTitle.textContent);
+                noteTitle = noteTitle.textContent;
+                data = JSON.parse(localStorage.getItem("notes"));
+                let index = 0;
+                for (let opened of data)
+                {
+                //     //i was trying to access the name storage to delete it from database
+                    if (opened.taskNameStorage === noteTitle)
+                    {
+                        opened.statusStorage = "done";
+                        // data.splice(index, 1);
+                        break;
+                    }
+                    index++;
+                }
+                localStorage.setItem("notes", JSON.stringify(data));
+                location.reload();
+            })
+            
             if (liPriority.innerText === "p1")
             {
                 liName.style.color = "#da2c38";
@@ -86,6 +183,8 @@ if (localStorage.getItem("notes"))
                 liEcheance.classList.toggle("hidden");
                 liDescripton.classList.toggle("hidden");
                 liPriority.classList.toggle("hidden");
+                liDelete.classList.toggle("hidden");
+                liModify.classList.toggle("hidden");
             })
         
             ul.appendChild(liName);
@@ -93,6 +192,8 @@ if (localStorage.getItem("notes"))
             ul.appendChild(liPriority);
             ul.appendChild(liDescripton);
             ul.appendChild(liEcheance);
+            ul.appendChild(liDelete);
+            ul.appendChild(liModify);
         
             if (liStatus.innerText === "todo")
                 {
@@ -109,6 +210,30 @@ if (localStorage.getItem("notes"))
                     column = document.getElementById("doneTasks");
                     column.appendChild(ul);
                 }
+            liDelete.addEventListener("click", () => {
+                    noteTitle = liDelete;
+                    for (let i = 0; i < 5; i++)
+                    {
+                        noteTitle = noteTitle.previousElementSibling;
+                        // console.log("element = " + noteTitle.textContent);
+                    }
+                    // console.log("element = " + noteTitle.textContent);
+                    noteTitle = noteTitle.textContent;
+                    data = JSON.parse(localStorage.getItem("notes"));
+                    let index = 0;
+                    for (let opened of data)
+                    {
+                        //i was trying to access the name storage to delete it from database
+                        if (opened.taskNameStorage === noteTitle)
+                        {
+                            data.splice(index, 1);
+                            break;
+                        }
+                        index++;
+                    }
+                    localStorage.setItem("notes", JSON.stringify(data));
+                    location.reload();
+            })
     }
     // const li = document.createElement('li');
     // li.innertext = taskname.value;
@@ -164,6 +289,97 @@ newNoteForm.addEventListener("submit", (event) =>
     buttonDelete.textContent = "Delete";
     liDelete.appendChild(buttonDelete);
     liDelete.classList.add("hidden");
+
+    let liModify = document.createElement('li');
+    let toDoModify = document.createElement('button');
+    toDoModify.textContent = "To Do";
+    let doingModify = document.createElement('button');
+    doingModify.textContent = "Doing";
+    let doneModify = document.createElement('button');
+    doneModify.textContent = "Done ";
+
+    liModify.appendChild(toDoModify);
+    liModify.appendChild(doingModify);
+    liModify.appendChild(doneModify);
+    liModify.classList.add("flex", "justify-between", "hidden")
+
+    toDoModify.addEventListener("click", () => {
+        noteTitle = toDoModify.parentElement;
+        for (let i = 0; i < 6; i++)
+        {
+            noteTitle = noteTitle.previousElementSibling;
+            // console.log("element = " + noteTitle.textContent);
+        }
+        // // console.log("element = " + noteTitle.textContent);
+        noteTitle = noteTitle.textContent;
+        data = JSON.parse(localStorage.getItem("notes"));
+        let index = 0;
+        for (let opened of data)
+        {
+        //     //i was trying to access the name storage to delete it from database
+            if (opened.taskNameStorage === noteTitle)
+            {
+                opened.statusStorage = "todo"
+                // data.splice(index, 1);
+                break;
+            }
+            index++;
+        }
+        localStorage.setItem("notes", JSON.stringify(data));
+        location.reload();
+    })
+
+    doingModify.addEventListener("click", () => {
+        noteTitle = doingModify.parentElement;
+        for (let i = 0; i < 6; i++)
+        {
+            noteTitle = noteTitle.previousElementSibling;
+            // console.log("element = " + noteTitle.textContent);
+        }
+        // // console.log("element = " + noteTitle.textContent);
+        noteTitle = noteTitle.textContent;
+        data = JSON.parse(localStorage.getItem("notes"));
+        let index = 0;
+        for (let opened of data)
+        {
+        //     //i was trying to access the name storage to delete it from database
+            if (opened.taskNameStorage === noteTitle)
+            {
+                opened.statusStorage = "doing"
+                // data.splice(index, 1);
+                break;
+            }
+            index++;
+        }
+        localStorage.setItem("notes", JSON.stringify(data));
+        location.reload();
+    })
+    doneModify.addEventListener("click", () => {
+        noteTitle = doneModify.parentElement;
+        for (let i = 0; i < 6; i++)
+        {
+            noteTitle = noteTitle.previousElementSibling;
+            // console.log("element = " + noteTitle.textContent);
+        }
+        // // console.log("element = " + noteTitle.textContent);
+        noteTitle = noteTitle.textContent;
+        data = JSON.parse(localStorage.getItem("notes"));
+        let index = 0;
+        for (let opened of data)
+        {
+        //     //i was trying to access the name storage to delete it from database
+            if (opened.taskNameStorage === noteTitle)
+            {
+                opened.statusStorage = "done";
+                // data.splice(index, 1);
+                break;
+            }
+            index++;
+        }
+        localStorage.setItem("notes", JSON.stringify(data));
+        location.reload();
+    })
+
     //thebutton is created it needs an event listener
     //use previous sibling to find the taskname
 
@@ -206,6 +422,7 @@ newNoteForm.addEventListener("submit", (event) =>
         liDescripton.classList.toggle("hidden");
         liPriority.classList.toggle("hidden");
         liDelete.classList.toggle("hidden");
+        liModify.classList.toggle("hidden");
         // liStatus.classList.toggle("hidden");
     })
 
@@ -215,6 +432,7 @@ newNoteForm.addEventListener("submit", (event) =>
     ul.appendChild(liDescripton);
     ul.appendChild(liEcheance);
     ul.appendChild(liDelete);
+    ul.appendChild(liModify);
 
     if (liStatus.innerText === "todo")
         {
@@ -231,9 +449,32 @@ newNoteForm.addEventListener("submit", (event) =>
             column = document.getElementById("doneTasks");
             column.appendChild(ul);
         }
-    liDelete.addEventListener("click", () => {
 
-    })
+    liDelete.addEventListener("click", () => {
+        noteTitle = liDelete;
+        for (let i = 0; i < 5; i++)
+        {
+            noteTitle = noteTitle.previousElementSibling;
+            // console.log("element = " + noteTitle.textContent);
+        }
+        // console.log("element = " + noteTitle.textContent);
+        noteTitle = noteTitle.textContent;
+        data = JSON.parse(localStorage.getItem("notes"));
+        let index = 0;
+        for (let opened of data)
+        {
+            //i was trying to access the name storage to delete it from database
+            if (opened.taskNameStorage === noteTitle)
+            {
+                data.splice(index, 1);
+                break;
+            }
+            index++;
+        }
+        localStorage.setItem("notes", JSON.stringify(data));
+        location.reload();
+})
+
     let notes = JSON.parse(localStorage.getItem("notes")) || [];
     notes.push({
         taskNameStorage : taskNameCurrent.value,
@@ -243,32 +484,4 @@ newNoteForm.addEventListener("submit", (event) =>
         statusStorage : statusCurrent.value,
     });
     localStorage.setItem('notes', JSON.stringify(notes));
-    // location.reload()
-
-    //ok it's stored but now how to retrieve it well i know how to retrieve it lol
-    // i'm thinking i already incorporated local storage why not incorporate it fully
-    // i just have to repeat what i've done for the task for each task i retrieve and put it in it's place
-    // but i'm thinking of the styling come on that's the easy part you can always add it later
-
-    // changing status and deleting let's say you put an icon for delete first it gotta go dynamically meaning
-    // the icon should be added when the ul is (in my opinion make a new li that will show when note is clicked
-    //let's say you put the icon in it's correct place when
-    //clicked it gotta delete the ul and update database and to do so you gotta look for it in the database
-    //find it delete it and theeeen update
-    //how about status when the change status button clicked you gotta ask user to give you what new status
-    //then when user chooses you go update the corresponding li of the task then something gotta trigger the
-    //change of position according to the new status or i can make a copy of the element change it's status
-    //delete the previous place the new one in database and the one will trigger all this is the button
-    //that submits the new user modification
 })
-
-// const userData = {
-//     username: 'JohnDoe',
-//     age: 30,
-//     email: 'john@example.com'
-// };
-// localStorage.setItem('user', JSON.stringify(userData));
-// const retrievedData = JSON.parse(localStorage.getItem('user'));
-// console.log(retrievedData.username); // Output: JohnDoe
-// console.log(retrievedData.age);      // Output: 30
-// console.log(retrievedData.email);    // Output: john@example.com

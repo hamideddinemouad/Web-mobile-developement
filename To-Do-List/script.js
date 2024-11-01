@@ -52,8 +52,10 @@ if (localStorage.getItem("notes"))
             let liDelete = document.createElement('li');
             let buttonDelete = document.createElement('button');
             buttonDelete.textContent = "Delete";
+            buttonDelete.classList.add('bg-red-500', 'text-white','px-4','py-2', 'rounded-md', 'hover:bg-red-600', 'cursor-pointer' );
             liDelete.appendChild(buttonDelete);
             liDelete.classList.add("hidden");
+        
 
             let liStatus = document.createElement('li');
             liStatus.innerText = opened.statusStorage;
@@ -70,10 +72,14 @@ if (localStorage.getItem("notes"))
             let liModify = document.createElement('li');
             let toDoModify = document.createElement('button');
             toDoModify.textContent = "To Do";
+            toDoModify.classList.add('bg-green-500', 'text-white','px-4','py-2', 'rounded-md', 'hover:bg-green-600', 'cursor-pointer' );
+            
             let doingModify = document.createElement('button');
             doingModify.textContent = "Doing";
+            doingModify.classList.add('bg-pink-500', 'text-white','px-4','py-2', 'rounded-md', 'hover:bg-pink-600', 'cursor-pointer' );
             let doneModify = document.createElement('button');
             doneModify.textContent = "Done ";
+            doneModify.classList.add('bg-violet-500', 'text-white','px-4','py-2', 'rounded-md', 'hover:bg-violet-600', 'cursor-pointer' );
         
             liModify.appendChild(toDoModify);
             liModify.appendChild(doingModify);
@@ -194,6 +200,11 @@ if (localStorage.getItem("notes"))
             ul.appendChild(liEcheance);
             ul.appendChild(liDelete);
             ul.appendChild(liModify);
+            ul.classList.add("flex", "flex-col", "gap-2");
+            liName.style.cssText = 'font-family: "Patrick Hand", cursive; font-size: 20px; font-weight: bold; line-height: 1.5';
+            liPriority.style.cssText = 'font-family: "Patrick Hand", cursive; font-size: 20px; font-weight: bold; line-height: 1.5';
+            liDescripton.style.cssText = 'font-family: "Patrick Hand", cursive; font-size: 20px; font-weight: bold; line-height: 1.5';
+            liEcheance.style.cssText = 'font-family: "Patrick Hand", cursive; font-size: 20px; font-weight: bold; line-height: 1.5';
         
             if (liStatus.innerText === "todo")
                 {
@@ -293,10 +304,15 @@ newNoteForm.addEventListener("submit", (event) =>
     let liModify = document.createElement('li');
     let toDoModify = document.createElement('button');
     toDoModify.textContent = "To Do";
+    toDoModify.classList.add('bg-green-500', 'text-white','px-4','py-2', 'rounded-md', 'hover:bg-green-600', 'cursor-pointer' );
+
     let doingModify = document.createElement('button');
     doingModify.textContent = "Doing";
+    doingModify.classList.add('bg-green-500', 'text-white','px-4','py-2', 'rounded-md', 'hover:bg-green-600', 'cursor-pointer' );
     let doneModify = document.createElement('button');
     doneModify.textContent = "Done ";
+    doneModify.classList.add('bg-green-500', 'text-white','px-4','py-2', 'rounded-md', 'hover:bg-green-600', 'cursor-pointer' );
+    
 
     liModify.appendChild(toDoModify);
     liModify.appendChild(doingModify);
@@ -433,6 +449,7 @@ newNoteForm.addEventListener("submit", (event) =>
     ul.appendChild(liEcheance);
     ul.appendChild(liDelete);
     ul.appendChild(liModify);
+    ul.classList.add("flex", "flex-col", "gap-2")
 
     if (liStatus.innerText === "todo")
         {
@@ -474,6 +491,14 @@ newNoteForm.addEventListener("submit", (event) =>
         localStorage.setItem("notes", JSON.stringify(data));
         location.reload();
 })
+    toDoModify.classList.add('bg-green-500', 'text-white','px-4','py-2', 'rounded-md', 'hover:bg-green-600', 'cursor-pointer' );
+    doingModify.classList.add('bg-pink-500', 'text-white','px-4','py-2', 'rounded-md', 'hover:bg-pink-600', 'cursor-pointer' );
+    doneModify.classList.add('bg-violet-500', 'text-white','px-4','py-2', 'rounded-md', 'hover:bg-violet-600', 'cursor-pointer' );
+    buttonDelete.classList.add('bg-red-500', 'text-white','px-4','py-2', 'rounded-md', 'hover:bg-red-600', 'cursor-pointer' ); 
+    liName.style.cssText = 'font-family: "Patrick Hand", cursive; font-size: 20px; font-weight: bold; line-height: 1.5';
+    liPriority.style.cssText = 'font-family: "Patrick Hand", cursive; font-size: 20px; font-weight: bold; line-height: 1.5';
+    liDescripton.style.cssText = 'font-family: "Patrick Hand", cursive; font-size: 20px; font-weight: bold; line-height: 1.5';
+    liEcheance.style.cssText = 'font-family: "Patrick Hand", cursive; font-size: 20px; font-weight: bold; line-height: 1.5';
 
     let notes = JSON.parse(localStorage.getItem("notes")) || [];
     notes.push({

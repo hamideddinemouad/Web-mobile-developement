@@ -1,9 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'patrick-hand': ['"Patrick Hand"', 'cursive'],
+      },
+    },
   },
   plugins: [],
 }
-

@@ -6,35 +6,7 @@ const newNoteButton = document.getElementById('newNoteButton');
 const newNoteForm = document.getElementById('newNote');
 const cancel = document.getElementById('cancel');
 
-// let liElements = document.querySelectorAll("#doneTasks ul li");
-
-// liElements.forEach(li => {
-//     li.addEventListener("click", () => {
-//         console.log("ran");
-//         liElements.forEach(item => {
-//             item.classList.toggle("hidden");
-//         });
-//     });
-// });
-
-
-// NOW YOURE STUCK FIGURING OUT HOW TO SHOW HIDDEN LI'S 
-//and when to add event listener+
-
-
-
-// myButton.addEventListener("click",() => 
-//     {
-//         // alert('buttonclicked');
-//         options.classList.toggle("hidden");
-//     });
-    
-// let firstchild = doingColumn.children;
-// console.log("firstchild = " + firstchild);
-// console.log("firstchild = " + firstchild.innerText);
-//i'm here struggling to know whats selected
-//select the element to hover over
-
+let totalTasks = 0;
 
 
 if (localStorage.getItem("notes"))
@@ -46,6 +18,11 @@ if (localStorage.getItem("notes"))
     for (let opened of stored)
     {
             // console.log("opened = " + opened.taskNameStorage);
+
+            totalTasks++;
+            let total = document.getElementById('total');
+            total.innerText = `Total tasks : ${totalTasks}`;
+
             let column;
             let ul = document.createElement('ul');
         
@@ -205,7 +182,7 @@ if (localStorage.getItem("notes"))
             liPriority.style.cssText = 'font-family: "Patrick Hand", cursive; font-size: 20px; font-weight: bold; line-height: 1.5';
             liDescripton.style.cssText = 'font-family: "Patrick Hand", cursive; font-size: 20px; font-weight: bold; line-height: 1.5';
             liEcheance.style.cssText = 'font-family: "Patrick Hand", cursive; font-size: 20px; font-weight: bold; line-height: 1.5';
-        
+
             if (liStatus.innerText === "todo")
                 {
                     column = document.getElementById('toDoTasks');
@@ -223,6 +200,8 @@ if (localStorage.getItem("notes"))
                 }
             liDelete.addEventListener("click", () => {
                     noteTitle = liDelete;
+                    totalTasks--;
+                    // console.log("after delete = " + totalTasks);
                     for (let i = 0; i < 5; i++)
                     {
                         noteTitle = noteTitle.previousElementSibling;
@@ -277,6 +256,7 @@ cancel.addEventListener("click", () =>
 })
 newNoteForm.addEventListener("submit", (event) =>
 {
+    // console.log("total tasks = "+ totalTasks);
     event.preventDefault();
     const taskNameCurrent = document.getElementById('taskname');
     const descriptionCurrent = document.getElementById('description');
@@ -289,7 +269,10 @@ newNoteForm.addEventListener("submit", (event) =>
     // and not show it
     // create a ul and append it to to do tasks
     // when you want to show on click it will show all infos toggle hidden like before
-
+    totalTasks++;
+    console.log("submit totalTasks++ =" + totalTasks);
+    let total = document.getElementById('total');
+    total.innerText = `Total tasks : ${totalTasks}`;
 
 
     let column;
@@ -317,8 +300,7 @@ newNoteForm.addEventListener("submit", (event) =>
     liModify.appendChild(toDoModify);
     liModify.appendChild(doingModify);
     liModify.appendChild(doneModify);
-    liModify.classList.add("flex", "justify-between", "hidden")
-
+    liModify.classList.add("flex", "justify-between", "hidden");
     toDoModify.addEventListener("click", () => {
         noteTitle = toDoModify.parentElement;
         for (let i = 0; i < 6; i++)

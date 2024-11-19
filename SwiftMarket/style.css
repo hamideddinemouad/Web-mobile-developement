@@ -12,7 +12,6 @@ a
 header
 {
     background-image: url('Assets/header-back.jpg');
-    height: 100vh;
     background-position: center;
     background-size: cover;
 }
@@ -51,7 +50,7 @@ nav ul
 nav ul li
 {
     font-family: "Edu AU VIC WA NT Pre", cursive;
-    font-size: 20px;
+    font-size: 1em;
     font-weight: 400;
     font-style: normal;
 }
@@ -59,4 +58,45 @@ nav ul li :hover
 {
     font-size: 30px;
 }
+header section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+    /* gap: 6rem; */
+}
+header section div
+{
+    font-family: "Edu AU VIC WA NT Pre", cursive;
+    font-size: 4vw;
+    font-weight: 400;
+    font-style: normal;
+    height: auto;
+
+    /* background-color: blue; */
+}
+header section button
+{
+    width: 10rem;
+    height: 10rem;
+    background-color: rgb(52, 150, 229);
+    border-radius: 7.5rem;
+    border: 0px;
+    font-family: "Edu AU VIC WA NT Pre", cursive;
+    font-size: 1vw;
+    opacity: 0.7;
+}
+header section button:hover
+{
+    width: 13rem;
+    height: 13rem;
+    border-radius: 6.1rem;
+    border: 0;
+    opacity: 0.8;
+    font-size: 2vw;
+    cursor: grab;
+}
+
 

@@ -4,3 +4,59 @@
     margin: 0;
     box-sizing: border-box;
 }
+a
+{
+    text-decoration: none;
+    color: black;
+}
+header
+{
+    background-image: url('Assets/header-back.jpg');
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+nav
+{
+    /* background-color: blue; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+nav div
+{
+    height: auto;
+    width: 5vw;
+    /* align-self: flex-start; */
+    margin-right: auto;
+}
+nav div :hover
+{
+    width: 8vw;
+}
+nav img
+{
+    width: 100%;
+    height: 100%;
+}
+nav ul
+{
+    padding-right: 10vw;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    gap: 10vw;
+
+}
+nav ul li
+{
+    font-family: "Edu AU VIC WA NT Pre", cursive;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+}
+nav ul li :hover
+{
+    font-size: 30px;
+}
+

@@ -12,17 +12,13 @@ body {
   background-size: cover;
 }
 
-img {
-  height: auto;
-  width: 100%;
-}
-
 main {
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: 10px;
   padding: 10px;
 }
 
@@ -31,7 +27,10 @@ main {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
   height: 100%;
-  width: 60%;
+  width: 40%;
+  background-image: url("../assets/img/formation-background3.webp");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 .control-panel {
@@ -41,102 +40,127 @@ main {
 }
 
 .formation .pos1-1 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos2-1 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos3-1 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos4-1 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos5-1 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos1-2 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos2-2 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos3-2 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos4-2 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos5-2 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos1-3 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos2-3 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos3-3 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos4-3 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos5-3 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos1-4 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos2-4 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos3-4 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos4-4 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos5-4 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos1-5 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos2-5 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos3-5 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos4-5 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }
 .formation .pos5-5 {
-  background-color: grey;
+  border-style: dashed;
+  border-color: #000000;
   display: inline-block;
 }

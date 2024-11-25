@@ -1,0 +1,142 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../assets/img/stadium_background.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+img {
+  height: auto;
+  width: 100%;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.formation {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  height: 100%;
+  width: 60%;
+}
+
+.control-panel {
+  width: 30%;
+  height: 20%;
+  background-color: #000000;
+}
+
+.formation .pos1-1 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos2-1 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos3-1 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos4-1 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos5-1 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos1-2 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos2-2 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos3-2 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos4-2 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos5-2 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos1-3 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos2-3 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos3-3 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos4-3 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos5-3 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos1-4 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos2-4 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos3-4 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos4-4 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos5-4 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos1-5 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos2-5 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos3-5 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos4-5 {
+  background-color: grey;
+  display: inline-block;
+}
+.formation .pos5-5 {
+  background-color: grey;
+  display: inline-block;
+}

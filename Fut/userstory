@@ -1,0 +1,45 @@
+Création d'une équipe de 11 joueurs
+
+En tant qu'utilisateur, je souhaite pouvoir ajouter des joueurs à ma formation via un formulaire dynamique, avec un maximum de 11 joueurs sélectionnés pour garantir une structure d'équipe conforme
+Critères d'acceptation
+
+Je peux ajouter un joueur à partir d'un formulaire dynamique comprenant les champs nécessaires (nom, position, statistiques)
+Je peux modifier ou supprimer les joueurs ajoutés
+Le formulaire vérifie la validité des données saisies
+​
+
+Adaptation de la formation choisie (ex : 4-3-3 ou 4-4-2)
+
+En tant qu'utilisateur, je souhaite pouvoir changer la formation de mon équipe et voir les positions des joueurs ajustées en conséquence
+Critères d'acceptation
+
+Je peux choisir entre les formations prédéfinies (e.g., 4-4-2, 4-3-3)
+Le positionnement des joueurs est automatiquement mis à jour pour s'adapter à la formation choisie
+Seuls les postes valides pour la formation sont disponibles pour chaque joueur
+​
+
+Calcul du score de Chimistry
+
+En tant qu'utilisateur, je souhaite voir le score de "chimie" de mon équipe calculé et affiché en fonction des relations entre les joueurs pour optimiser la composition de mon équipe
+Critères d'acceptation
+
+Le score de chimie est mis à jour dynamiquement selon les joueurs sélectionnés et leur compatibilité
+Des liaisons fortes/faibles sont mises en évidence visuellement
+​
+
+Sauvegarde et Récupération des Données
+
+En tant qu'utilisateur, je souhaite que mes données de formation et d'équipe soient sauvegardées automatiquement pour pouvoir les récupérer plus tard
+Critères d'acceptation
+
+Les données sont stockées localement
+La récupération des données se fait lors du chargement de l'application
+​
+
+Formulaire Dynamique pour les Joueurs
+
+En tant qu'utilisateur, je souhaite pouvoir ajouter dynamiquement de nouveaux joueurs au sein de l'interface
+Critères d'acceptation
+
+Un formulaire dynamique permet de créer de nouveaux joueurs
+L'interface ajuste les positions et le nombre de joueurs

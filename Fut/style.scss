@@ -33,7 +33,7 @@ main
 {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     height: 100%;
     width: 40%;
     background-image: url("../assets/img/formation-background3.webp");
@@ -47,15 +47,67 @@ main
     height: 20%;
     background-color: #000000;
 }
-.formation {
-    @for $row from 1 through 5 {
-      @for $col from 1 through 5 {
-        .pos#{$col}-#{$row} {
-            border-style:dashed;
-            border-color: #000000;
-            // background-color: grey; // Dynamic colors
-            display: inline-block;
-        }
-      }
+
+
+// .dot {
+//     $size: 20px; 
+//     $color: blue; 
+  
+//     width: $size;
+//     height: $size;
+//     background: $color;
+//     border-radius: 50%;
+//     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // 3D shadow effect
+  
+//     transition: box-shadow 0.3s, background 0.3s; // smooth transition
+  
+//     &:hover {
+//       background: lighten($color, 10%); // lighter highlight
+//       box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5); // stronger shadow
+//     }
+//   }
+
+.dot {
+    $size: 30px; 
+    $color: blue; 
+    width: $size;
+    height: $size;
+    background: $color;
+    font-size: 8px;
+    display: flex; // Makes centering easier
+    justify-content: center; // Center text horizontally
+    align-items: center; // Center text vertically
+    border-radius: 50%;
+    &:hover {
+      background: lighten($color, 20%); // lighter highlight
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5); // stronger shadow
     }
-  }
+}
+
+// .formation {
+//     @for $row from 1 through 5 {
+//       @for $col from 1 through 5 {
+//         .pos#{$col}-#{$row} {
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             // background-color: grey; // Dynamic colors
+//             // display: inline-block;
+//         }
+//       }
+//     }
+//   }
+
+//   .formation {
+//     @for $row from 2 through 4 {
+//       @for $col from 1 through 5 {
+//         .pos#{$col}-#{$row} {
+//             border-style:dashed;
+//             border-color: #000000;
+//             // background-color: grey; // Dynamic colors
+//             // display: inline-block;
+//         }
+//       }
+//     }
+//   }
+  

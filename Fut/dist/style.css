@@ -25,7 +25,7 @@ main {
 .formation {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr) 10px;
   height: 100%;
   width: 40%;
   background-image: url("../assets/img/formation-background3.webp");
@@ -52,4 +52,20 @@ main {
 .dot:hover {
   background: #6666ff;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+}
+
+section * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.CB1 {
+  grid-row: 3;
+  grid-column: 3;
+}
+
+.GK {
+  grid-row: 4;
+  grid-column: 3;
 }

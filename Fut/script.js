@@ -47,8 +47,11 @@ function insertFormation(formation)
 
 function fourThreeThree()
 {
-    let template = 
-            `
+    let mainHtml = document.querySelector("main");
+    // console.log(mainHtml);
+    let formationSection = document.createElement("section")
+    formationSection.classList.add("formation");
+    formationSection.innerHTML = ` 
             <div class="GK"><div class="dot">GK</div></div>
 
             <div class="CB1"><div class="dot">CB1</div></div>
@@ -72,7 +75,9 @@ function fourThreeThree()
 
             <div class="FWL"><div class="dot">FWL</div></div>
             `
+    mainHtml.appendChild(formationSection);
 }
+fourThreeThree();
 // divs.forEach(div => (div.innerHTML))
 // function main()
 // {

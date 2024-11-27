@@ -49,15 +49,14 @@ function fourThreeThree()
 {
     let mainHtml = document.querySelector("main");
     // console.log(mainHtml);
-    let formationSection = document.createElement("section")
+    let formationSection = document.createElement("section");
     formationSection.classList.add("formation");
     formationSection.innerHTML = ` 
             <div class="GK"><div class="dot">GK</div></div>
 
-            <div class="CB1"><div class="dot">CB1</div></div>
+            <div class="CBL"><div class="dot">CBL</div></div>
 
-            <div class="CB2"><div class="dot">CB2</div></div>
-
+            <div class="CBR"><div class="dot">CBR</div></div>
 
             <div class="LB"> <div class="dot">LB</div></div>
 
@@ -65,19 +64,24 @@ function fourThreeThree()
 
             <div class="MDF"><div class="dot">MDF</div></div>
 
-            <div class="CM1"><div class="dot">CM1</div></div>
+            <div class="ML"><div class="dot">ML</div></div>
 
-            <div class="CM2"><div class="dot">CM2</div></div>
+            <div class="MR"><div class="dot">MR</div></div>
 
-            <div class="ST1"><div class="dot">ST1</div></div>
+            <div class="STM"><div class="dot">STM</div></div>
 
             <div class="FWR"><div class="dot">FWR</div></div>
 
-            <div class="FWL"><div class="dot">FWL</div></div>
+            <div class="FWL"><div class="dot">FWL</div></div> 
             `
     mainHtml.appendChild(formationSection);
 }
 fourThreeThree();
+
+function fourFourTwo()
+{
+    
+}
 // divs.forEach(div => (div.innerHTML))
 // function main()
 // {

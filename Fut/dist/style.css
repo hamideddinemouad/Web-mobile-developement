@@ -27,7 +27,7 @@ main {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr) 10px;
   height: 100%;
-  width: 40%;
+  width: 400px;
   background-image: url("../assets/img/formation-background3.webp");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -60,12 +60,84 @@ section * {
   justify-content: center;
 }
 
-.CB1 {
+.GK {
+  grid-row: 4;
+  grid-column: 3;
+}
+
+.CBR {
+  grid-row: 3;
+  grid-column: 4;
+}
+
+.CBL {
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.CBC {
   grid-row: 3;
   grid-column: 3;
 }
 
-.GK {
-  grid-row: 4;
+.LB {
+  grid-row: 3;
+  grid-column: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+.RB {
+  display: flex;
+  align-items: flex-start;
+  grid-row: 3;
+  grid-column: 5;
+}
+
+.MDF, .CMR, .CML, .ML, .MR {
+  grid-row: 2;
+}
+
+.MDF {
   grid-column: 3;
+}
+
+.CMR {
+  grid-column: 4;
+}
+
+.CML {
+  grid-column: 2;
+}
+
+.MR {
+  grid-column: 5;
+}
+
+.ML {
+  grid-column: 1;
+}
+
+.STL, .STR, .FWR, .FWL {
+  grid-row: 1;
+}
+
+.STL {
+  grid-column: 2;
+}
+
+.STR {
+  grid-column: 4;
+}
+
+.STM {
+  grid-column: 3;
+}
+
+.FWL {
+  grid-column: 1;
+}
+
+.FWR {
+  grid-column: 5;
 }

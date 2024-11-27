@@ -56,11 +56,13 @@ function fourThreeThree() {
 
   var formationSection = document.createElement("section");
   formationSection.classList.add("formation");
-  formationSection.innerHTML = " \n            <div class=\"GK\"><div class=\"dot\">GK</div></div>\n\n            <div class=\"CB1\"><div class=\"dot\">CB1</div></div>\n\n            <div class=\"CB2\"><div class=\"dot\">CB2</div></div>\n\n\n            <div class=\"LB\"> <div class=\"dot\">LB</div></div>\n\n            <div class=\"RB\"> <div class=\"dot\">RB</div></div>\n\n            <div class=\"MDF\"><div class=\"dot\">MDF</div></div>\n\n            <div class=\"CM1\"><div class=\"dot\">CM1</div></div>\n\n            <div class=\"CM2\"><div class=\"dot\">CM2</div></div>\n\n            <div class=\"ST1\"><div class=\"dot\">ST1</div></div>\n\n            <div class=\"FWR\"><div class=\"dot\">FWR</div></div>\n\n            <div class=\"FWL\"><div class=\"dot\">FWL</div></div>\n            ";
+  formationSection.innerHTML = " \n            <div class=\"GK\"><div class=\"dot\">GK</div></div>\n\n            <div class=\"CBL\"><div class=\"dot\">CBL</div></div>\n\n            <div class=\"CBR\"><div class=\"dot\">CBR</div></div>\n\n            <div class=\"LB\"> <div class=\"dot\">LB</div></div>\n\n            <div class=\"RB\"> <div class=\"dot\">RB</div></div>\n\n            <div class=\"MDF\"><div class=\"dot\">MDF</div></div>\n\n            <div class=\"ML\"><div class=\"dot\">ML</div></div>\n\n            <div class=\"MR\"><div class=\"dot\">MR</div></div>\n\n            <div class=\"STM\"><div class=\"dot\">STM</div></div>\n\n            <div class=\"FWR\"><div class=\"dot\">FWR</div></div>\n\n            <div class=\"FWL\"><div class=\"dot\">FWL</div></div> \n            ";
   mainHtml.appendChild(formationSection);
 }
 
-fourThreeThree(); // divs.forEach(div => (div.innerHTML))
+fourThreeThree();
+
+function fourFourTwo() {} // divs.forEach(div => (div.innerHTML))
 // function main()
 // {
 // }

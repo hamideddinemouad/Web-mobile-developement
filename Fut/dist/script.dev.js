@@ -60,9 +60,37 @@ function fourThreeThree() {
   mainHtml.appendChild(formationSection);
 }
 
-fourThreeThree();
+function Apicons() {
+  var fetched, converted;
+  return regeneratorRuntime.async(function Apicons$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return regeneratorRuntime.awrap(fetch("http://localhost:3000/players"));
 
-function fourFourTwo() {} // divs.forEach(div => (div.innerHTML))
-// function main()
-// {
-// }
+        case 2:
+          fetched = _context.sent;
+          _context.next = 5;
+          return regeneratorRuntime.awrap(fetched.json());
+
+        case 5:
+          converted = _context.sent;
+          return _context.abrupt("return", converted);
+
+        case 7:
+        case "end":
+          return _context.stop();
+      }
+    }
+  });
+}
+
+function createCard() {}
+
+function main() {
+  var jsonArray = Apicons();
+  fourThreeThree();
+}
+
+main();

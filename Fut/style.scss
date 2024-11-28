@@ -48,25 +48,84 @@ main
     background-color: #000000;
 }
 
+  .playerCard {
+    background-image: url("../assets/img/badge_total_rush.webp");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 180px;
+    width: 120px;
+    color: white;
+    display: grid;
+    grid-template-columns: 5px repeat(6, 1fr) 3px;
+    grid-template-rows: 5px repeat(5, 1fr) 5px;
+  }
+  .PAC, .SHO, .PAS, .DRI, .DEF, .PHY{
+    grid-row: 5;
+    font-size: 7px;
+    display: flex;
+    justify-content:flex-end;
+    align-items: end;
+  }
+  .logos {
+    display: flex;
+    // flex-direction: row;
+    justify-content: space-around;
+    grid-row: 6;
+    grid-column: 3/7;
+  }
+.flag, .logo, .club
+{
+    // grid-row: 6;
+    img
+    {
+        height: 10px;
+        width: 10px;
+    }
+}
+.flag
+{
+    // grid-column: 3;
+}
+.logo
+{
+    // grid-column: 4;
+}
+.club
+{
+    // grid-column: 5;
+}
+.PAC
+{
+    grid-column: 2;
+}
+.SHO
+{
+    grid-column: 3;
+}
+.PAS
+{
+    grid-column: 4;
+}
+.DRI
+{
+    grid-column: 5;
+}
+.DEF
+{
+    grid-column: 6;
+}
+.PHY
+{
+    grid-column: 7;
+}
 
-// .dot {
-//     $size: 20px; 
-//     $color: blue; 
-  
-//     width: $size;
-//     height: $size;
-//     background: $color;
-//     border-radius: 50%;
-//     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // 3D shadow effect
-  
-//     transition: box-shadow 0.3s, background 0.3s; // smooth transition
-  
-//     &:hover {
-//       background: lighten($color, 10%); // lighter highlight
-//       box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5); // stronger shadow
-//     }
-//   }
-
+.pname
+{
+    text-align: center;
+    grid-row: 4;
+    grid-column: 1/7;
+}
 .dot {
     $size: 30px; 
     $color: blue; 
@@ -170,30 +229,3 @@ section * {
 {
     grid-column: 5;
 }
-// .formation {
-//     @for $row from 1 through 3 {
-//       @for $col from 1 through 5 {
-//         .pos#{$col}-#{$row} {
-//             display: flex;
-//             align-items: center;
-//             justify-content: center;
-//             // background-color: grey; // Dynamic colors
-//             // display: inline-block;
-//         }
-//       }
-//     }
-//   }
-
-//   .formation {
-//     @for $row from 2 through 4 {
-//       @for $col from 1 through 5 {
-//         .pos#{$col}-#{$row} {
-//             border-style:dashed;
-//             border-color: #000000;
-//             // background-color: grey; // Dynamic colors
-//             // display: inline-block;
-//         }
-//       }
-//     }
-//   }
-  

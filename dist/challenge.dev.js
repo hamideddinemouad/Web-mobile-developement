@@ -1,19 +1,9 @@
 "use strict";
 
-function repeat(string, x) {
-  for (var i = 0; i < x; i++) {
-    console.log(string);
-  }
+function chunkArrayInGroups(arr, size) {
+  var a = [];
+  a = arr.slice(2);
+  console.log(a);
 }
 
-function titleCase(string) {
-  var array = string.split('');
-
-  for (var i = 0; i < array.length; i++) {
-    if (i == 0) {
-      array[i].toUpperCase(array[i]);
-    }
-  }
-}
-
-titleCase("hey");
+chunkArrayInGroups(["a", "b", "c", "d"], 2);

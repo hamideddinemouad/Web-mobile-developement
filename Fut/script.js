@@ -76,17 +76,23 @@ function fourThreeThree()
             `
     mainHtml.appendChild(formationSection);
 }
-fourThreeThree();
 
-function fourFourTwo()
+async function Apicons() 
+{
+    let fetched = await fetch("http://localhost:3000/players")
+    let converted = await fetched.json();
+    return (converted);
+}
+
+function createCard()
 {
     
 }
-// divs.forEach(div => (div.innerHTML))
-// function main()
-// {
-
-// }
-
+function main()
+{
+    let jsonArray = Apicons();
+    fourThreeThree();
+}
+main();
 
 

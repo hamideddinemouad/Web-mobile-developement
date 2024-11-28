@@ -1,5 +1,6 @@
 *
 {
+    // font-family: "Poppins", sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -60,12 +61,18 @@ main
     grid-template-columns: 5px repeat(6, 1fr) 3px;
     grid-template-rows: 5px repeat(5, 1fr) 5px;
   }
+//   rows: 7
+//   cols: 8
   .PAC, .SHO, .PAS, .DRI, .DEF, .PHY{
     grid-row: 5;
-    font-size: 7px;
     display: flex;
     justify-content:flex-end;
     align-items: end;
+    font-weight: 700;
+    font-style: normal;
+    font-size:7px;
+    color: cornsilk;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   .logos {
     display: flex;
@@ -83,17 +90,43 @@ main
         width: 10px;
     }
 }
-.flag
+//   rows: 7
+//   cols: 8
+.rating
 {
-    // grid-column: 3;
+    grid-row: 2;
+    grid-column: 1/9;
+    width: 100%;
+    height: 100%;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: cornsilk;
+    // color: rgb(0, 0, 0);
 }
-.logo
+
+.pname
 {
-    // grid-column: 4;
+    display: flex;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: cornsilk;
+    font-size: large;
+    // align-items: end;
+    justify-content: center;
+    grid-row: 4;
+    grid-column: 1/9;
 }
-.club
+.ppicture
 {
-    // grid-column: 5;
+    grid-row:2/3;
+    grid-column: 1/9;
+}
+.ppicture img
+{
+    width: 100%;
+    height: auto;
 }
 .PAC
 {
@@ -119,20 +152,13 @@ main
 {
     grid-column: 7;
 }
-
-.pname
-{
-    text-align: center;
-    grid-row: 4;
-    grid-column: 1/7;
-}
 .dot {
     $size: 30px; 
     $color: blue; 
     width: $size;
     height: $size;
     background: $color;
-    font-size: 8px;
+    // font-size: 8px;
     display: flex; // Makes centering easier
     justify-content: center; // Center text horizontally
     align-items: center; // Center text vertically

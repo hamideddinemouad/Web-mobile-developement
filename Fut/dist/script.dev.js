@@ -49,7 +49,13 @@ function insertFormation(formation) {
     console.error("insertFormation() isFormation() = false");
     return false;
   }
-}
+} // function event{
+//     addEventListener("click", ()=>
+//         {
+//             console.log("clicked");
+//         })
+// }
+
 
 function fourThreeThreeDefault(jsonArrayFttd) {
   var mainHtml = document.querySelector("main"); // console.log(mainHtml);
@@ -92,7 +98,11 @@ function fillpositionrand(posStr, jsonArrayFpr) {
   }
 
   console.log("from fillpositionrand() player_found =" + player_found);
-  var playersBadge = "\n                <div class=\"playerCard\">\n                <div class=\"rating\"> <span class=\"ratingnum\">".concat(player_found.rating, "</span> <span class=\"position\">").concat(player_found.position, "</span></div>\n                <div class=\"ppicture\"><img src=\"").concat(player_found.photo, "\" alt=\"\"></div>\n                <div class=\"pname\">").concat(player_found.name, "</div>\n                <div class=\"PAC\">PAC ").concat(player_found.pace, "</span></div>\n                <div class=\"SHO\">SHO ").concat(player_found.shooting, "</div>\n                <div class=\"PAS\">PAS ").concat(player_found.passing, "</div>\n                <div class=\"DRI\">DRI ").concat(player_found.dribbling, "</div>\n                <div class=\"DEF\">DEF ").concat(player_found.defending, "</div>\n                <div class=\"PHY\">PHY ").concat(player_found.physical, "</div>\n                <div class=\"logos\">\n                <div class=\"flag\"><img  src=\"").concat(player_found.flag, "\" alt=\"\"></div>\n                <div class=\"logo\"><img class=\"logo\" src=\"").concat(player_found.logo, "\" alt=\"\"></div>\n                <div class=\"club\"><img  src=\"").concat(player_found.logo, "\" alt=\"\"></div>\n                </div>\n            </div>\n            ");
+  playersBadge = document.createElement("div");
+  playersBadge.innerHTML = "\n                <div class=\"rating\"> <span class=\"ratingnum\">".concat(player_found.rating, "</span> <span class=\"position\">").concat(player_found.position, "</span></div>\n                <div class=\"ppicture\"><img src=\"").concat(player_found.photo, "\" alt=\"\"></div>\n                <div class=\"pname\">").concat(player_found.name, "</div>\n                <div class=\"PAC\">PAC ").concat(player_found.pace, "</span></div>\n                <div class=\"SHO\">SHO ").concat(player_found.shooting, "</div>\n                <div class=\"PAS\">PAS ").concat(player_found.passing, "</div>\n                <div class=\"DRI\">DRI ").concat(player_found.dribbling, "</div>\n                <div class=\"DEF\">DEF ").concat(player_found.defending, "</div>\n                <div class=\"PHY\">PHY ").concat(player_found.physical, "</div>\n                <div class=\"logos\">\n                <div class=\"flag\"><img  src=\"").concat(player_found.flag, "\" alt=\"\"></div>\n                <div class=\"logo\"><img class=\"logo\" src=\"").concat(player_found.logo, "\" alt=\"\"></div>\n                <div class=\"club\"><img  src=\"").concat(player_found.logo, "\" alt=\"\"></div>\n            ");
+  playersBadge.addEventListener("click", function () {
+    console.log("clicked");
+  });
   return playersBadge;
 }
 

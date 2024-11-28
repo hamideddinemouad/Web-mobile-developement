@@ -44,9 +44,15 @@ function insertFormation(formation)
         return(false);
     }
 }
-
+// function event{
+//     addEventListener("click", ()=>
+//         {
+//             console.log("clicked");
+//         })
+// }
 function fourThreeThreeDefault(jsonArrayFttd)
 {
+
     let mainHtml = document.querySelector("main");
     // console.log(mainHtml);
     let formationSection = document.createElement("section");
@@ -91,9 +97,10 @@ function fillpositionrand(posStr, jsonArrayFpr)
             }
         }
         console.log("from fillpositionrand() player_found =" + player_found);
-        let playersBadge = 
+        playersBadge = document.createElement("div");
+        
+        playersBadge.innerHTML = 
         `
-                <div class="playerCard">
                 <div class="rating"> <span class="ratingnum">${player_found.rating}</span> <span class="position">${player_found.position}</span></div>
                 <div class="ppicture"><img src="${player_found.photo}" alt=""></div>
                 <div class="pname">${player_found.name}</div>
@@ -107,9 +114,11 @@ function fillpositionrand(posStr, jsonArrayFpr)
                 <div class="flag"><img  src="${player_found.flag}" alt=""></div>
                 <div class="logo"><img class="logo" src="${player_found.logo}" alt=""></div>
                 <div class="club"><img  src="${player_found.logo}" alt=""></div>
-                </div>
-            </div>
             `
+        playersBadge.addEventListener("click", ()=>
+        {
+            console.log("clicked");
+        })
         return (playersBadge)
         
 }

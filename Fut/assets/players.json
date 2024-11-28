@@ -158,7 +158,13 @@
         "kicking": 78,
         "reflexes": 92,
         "speed": 50,
-        "positioning": 88
+        "positioning": 88,
+        "pace": 70,
+        "shooting": 75,
+        "passing": 88,
+        "dribbling": 84,
+        "defending": 84,
+        "physical": 81
       },
       {
         "name": "Luka Modrić",

@@ -97,12 +97,12 @@ function fillpositionrand(posStr, jsonArrayFpr)
                 <div class="rating"> <span class="ratingnum">${player_found.rating}</span> <span class="position">${player_found.position}</span></div>
                 <div class="ppicture"><img src="${player_found.photo}" alt=""></div>
                 <div class="pname">${player_found.name}</div>
-                <div class="PAC"> <span>PAC</span><span>${player_found.pace}</span></div>
-                <div class="SHO">SHO${player_found.shooting}</div>
-                <div class="PAS">PAS${player_found.passing}</div>
-                <div class="DRI">DRI${player_found.dribbling}</div>
-                <div class="DEF">DEF${player_found.defending}</div>
-                <div class="PHY">PHY${player_found.physical}</div>
+                <div class="PAC">PAC ${player_found.pace}</span></div>
+                <div class="SHO">SHO ${player_found.shooting}</div>
+                <div class="PAS">PAS ${player_found.passing}</div>
+                <div class="DRI">DRI ${player_found.dribbling}</div>
+                <div class="DEF">DEF ${player_found.defending}</div>
+                <div class="PHY">PHY ${player_found.physical}</div>
                 <div class="logos">
                 <div class="flag"><img  src="${player_found.flag}" alt=""></div>
                 <div class="logo"><img class="logo" src="${player_found.logo}" alt=""></div>

@@ -29,6 +29,7 @@ main {
   grid-template-rows: repeat(4, 1fr);
   height: auto;
   min-width: 50%;
+  width: 60%;
   background-image: url("../assets/img/stadium_background.webp");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -95,7 +96,7 @@ main {
   display: flex;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   color: cornsilk;
-  font-size: large;
+  font-size: 12px;
   justify-content: center;
   grid-row: 5;
   grid-column: 1/9;
@@ -141,11 +142,14 @@ main {
 .dot {
   width: 30px;
   height: 30px;
-  background: blue;
+  background: #008080;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  font-family: "Bungee Spice", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 .dot:hover {
   background: #6666ff;
@@ -204,8 +208,6 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  display: flex;
-  align-items: flex-start;
   grid-row: 3;
   grid-column: 5;
 }

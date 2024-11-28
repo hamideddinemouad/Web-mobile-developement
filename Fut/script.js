@@ -45,38 +45,74 @@ function insertFormation(formation)
     }
 }
 
-function fourThreeThree()
+function fourThreeThreeDefault(jsonArrayFttd)
 {
     let mainHtml = document.querySelector("main");
     // console.log(mainHtml);
     let formationSection = document.createElement("section");
     formationSection.classList.add("formation");
     formationSection.innerHTML = ` 
-            <div class="GK"><div class="dot">GK</div></div>
+            <div class="GK">${fillpositionrand("GK", jsonArrayFttd)}<div class="dot">GK</div></div>
 
-            <div class="CBL"><div class="dot">CBL</div></div>
+            <div class="CBL">${fillpositionrand("CB", jsonArrayFttd)}<div class="dot">CBL</div></div>
 
-            <div class="CBR"><div class="dot">CBR</div></div>
+            <div class="CBR">${fillpositionrand("CB", jsonArrayFttd)}<div class="dot">CBR</div></div>
 
-            <div class="LB"> <div class="dot">LB</div></div>
+            <div class="LB">${fillpositionrand("LB", jsonArrayFttd)} <div class="dot">LB</div></div>
 
-            <div class="RB"> <div class="dot">RB</div></div>
+            <div class="RB"> ${fillpositionrand("RB", jsonArrayFttd)}<div class="dot">RB</div></div>
 
-            <div class="MDF"><div class="dot">MDF</div></div>
+            <div class="MDF">${fillpositionrand("CM", jsonArrayFttd)}<div class="dot">MDF</div></div>
 
-            <div class="ML"><div class="dot">ML</div></div>
+            <div class="ML">${fillpositionrand("CM", jsonArrayFttd)}<div class="dot">ML</div></div>
 
-            <div class="MR"><div class="dot">MR</div></div>
+            <div class="MR">${fillpositionrand("CM", jsonArrayFttd)}<div class="dot">MR</div></div>
 
-            <div class="STM"><div class="dot">STM</div></div>
+            <div class="STM">${fillpositionrand("ST", jsonArrayFttd)}<div class="dot">STM</div></div>
 
-            <div class="FWR"><div class="dot">FWR</div></div>
+            <div class="FWR">${fillpositionrand("RW", jsonArrayFttd)}<div class="dot">FWR</div></div>
 
-            <div class="FWL"><div class="dot">FWL</div></div> 
+            <div class="FWL">${fillpositionrand("LW", jsonArrayFttd)}<div class="dot">FWL</div></div> 
             `
     mainHtml.appendChild(formationSection);
 }
 
+
+function fillpositionrand(posStr, jsonArrayFpr)
+{
+        let player_found;
+        for (let player of jsonArrayFpr)
+        {
+            if (player.position === posStr)
+            {
+                player_found = player;
+                console.log(player_found);
+                break;
+            }
+        }
+        console.log("from fillpositionrand() player_found =" + player_found);
+        let playersBadge = 
+        `
+                <div class="playerCard">
+                <div class="rating"> <span class="ratingnum">${player_found.rating}</span> <span class="position">${player_found.position}</span></div>
+                <div class="ppicture"><img src="${player_found.photo}" alt=""></div>
+                <div class="pname">${player_found.name}</div>
+                <div class="PAC"> <span>PAC</span><span>${player_found.pace}</span></div>
+                <div class="SHO">SHO${player_found.shooting}</div>
+                <div class="PAS">PAS${player_found.passing}</div>
+                <div class="DRI">DRI${player_found.dribbling}</div>
+                <div class="DEF">DEF${player_found.defending}</div>
+                <div class="PHY">PHY${player_found.physical}</div>
+                <div class="logos">
+                <div class="flag"><img  src="${player_found.flag}" alt=""></div>
+                <div class="logo"><img class="logo" src="${player_found.logo}" alt=""></div>
+                <div class="club"><img  src="${player_found.logo}" alt=""></div>
+                </div>
+            </div>
+            `
+        return (playersBadge)
+        
+}
 async function Apicons() 
 {
     let fetched = await fetch("http://localhost:3000/players")
@@ -84,14 +120,14 @@ async function Apicons()
     return (converted);
 }
 
-function createCard()
+async function main()
 {
     
-}
-function main()
-{
-    let jsonArray = Apicons();
-    fourThreeThree();
+    // let jsonArray = await Apicons();
+    let jsonArr =  await Apicons(); 
+    console.log(jsonArr);
+    fourThreeThreeDefault(jsonArr);
+    // fillpositionrand("CB", jsonArray);
 }
 main();
 

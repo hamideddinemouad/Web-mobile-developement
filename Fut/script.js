@@ -71,7 +71,7 @@ function fourThreeThreeDefault(jsonArrayFttd)
 
             <div class="FWR">${fillpositionrand("RW", jsonArrayFttd)}<div class="dot">RW</div></div>
 
-            <div class="FWL">${fillpositionrand("LW", jsonArrayFttd)}<div class="dot">LW</div></div>
+            <div class="FWL">${fillpositionrand("LW", jsonArrayFttd)}<div  id="${player.name}"class="dot">LW</div></div>
             
 
             `
@@ -93,7 +93,7 @@ function fillpositionrand(posStr, jsonArrayFpr)
         }
         let playersBadge = 
         `
-                <div class="playerCard">
+                <div id="${player_found.name}" class="playerCard">
                 <div class="rating"> <span class="ratingnum">${player_found.rating}</span> <span class="position">${player_found.position}</span></div>
                 <div class="ppicture"><img src="${player_found.photo}" alt=""></div>
                 <div class="pname">${player_found.name}</div>
@@ -133,7 +133,7 @@ function renderPlayerModal (arrplayersRpm, pos)
         playersBadge.classList.add(pos)
         playersBadge.innerHTML =
         `
-            <div class="playerCard">
+            <div "class="playerCard">
             <div class="rating"> <span class="ratingnum">${player.rating}</span> <span class="position">${player.position}</span></div>
             <div class="ppicture"><img src="${player.photo}" alt=""></div>
             <div class="pname">${player.name}</div>
@@ -149,36 +149,59 @@ function renderPlayerModal (arrplayersRpm, pos)
             <div class="club"><img  src="${player.logo}" alt=""></div>
             </div>
             </div>
-            <div class="dotm">${player.position}</div>
+            <div id="${player.name}class="dot">${player.position}</div>
         `
 
         // playerinmodal = querySelector(".modal ")
         modal.appendChild(playersBadge);
     }
-
-    let dotinmodal = document.querySelectorAll(".dotm");
-    Array.from(dotinmodal).forEach(dot => 
+    setUpListeners(modal);
+}
+function findTextContentHtml (playerFtch)
+{
+    console.log(playerFtch.id);
+}
+function setUpListeners (idSul)
+{
+    //the dot clicked must give us the name of the players which is attached to it
+    //why may i ask ?
+    let dots = document.querySelectorAll(".modal .dot");
+    dots = Array.from(dots);
+    console.log(dots);
+    for (let dot of dots)
     {
         dot.addEventListener("click", () =>
         {
-            // element.parentNode.removeChild(element);
-            let formationSection = document.querySelector(".formation");
-            let captured = document.querySelector(`.formation .${pos}`)
-    //         // console.log("captured below")
-            // captured.parentNode.removeChild(captured);
-    //         // console.log(captured);
-          
-            captured.remove();
-            let modal = document.querySelector(".modal")
-            let cardInModal = document.querySelector(`.modal .${pos}`);
-    //         console.log("cardinModal" +cardInModal);
-    //         // console.log("cardinModal" + cardInModal);
-            formationSection.appendChild(cardInModal);
-            formationSection.style.display = "grid";
-            modal.style.display = "none";
-            dot.className = "dot"
-        })})
+            console.log(dot.closest(".pname"));
+        })      
     }
+
+}
+
+
+    // let dotinmodal = document.querySelectorAll(".dotm");
+    // Array.from(dotinmodal).forEach(dot => 
+    // {
+    //     dot.addEventListener("click", () =>
+    //     {
+    //         // element.parentNode.removeChild(element);
+    //         let formationSection = document.querySelector(".formation");
+    //         let captured = document.querySelector(`.formation .${pos}`)
+    // //         // console.log("captured below")
+    //         // captured.parentNode.removeChild(captured);
+    // //         // console.log(captured);
+          
+    //         captured.remove();
+    //         let modal = document.querySelector(".modal")
+    //         let cardInModal = document.querySelector(`.modal .${pos}`);
+    // //         console.log("cardinModal" +cardInModal);
+    // //         // console.log("cardinModal" + cardInModal);
+    //         formationSection.appendChild(cardInModal);
+    //         formationSection.style.display = "grid";
+    //         modal.style.display = "none";
+    //         dot.className = "dot"
+    //     })})
+    // }
         //     let dot = document.querySelectorAll(".dot");
         //     Array.from(dot).forEach(doty => 
         //         {

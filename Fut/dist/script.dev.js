@@ -133,7 +133,7 @@ function renderPlayerModal(arrplayersRpm, pos) {
       var player = _step2.value;
       var playersBadge = document.createElement("div");
       playersBadge.classList.add(pos);
-      playersBadge.innerHTML = "\n            <div class=\"playerCard\">\n            <div class=\"rating\"> <span class=\"ratingnum\">".concat(player.rating, "</span> <span class=\"position\">").concat(player.position, "</span></div>\n            <div class=\"ppicture\"><img src=\"").concat(player.photo, "\" alt=\"\"></div>\n            <div class=\"pname\">").concat(player.name, "</div>\n            <div class=\"PAC\">PAC ").concat(player.pace, "</span></div>\n            <div class=\"SHO\">SHO ").concat(player.shooting, "</div>\n            <div class=\"PAS\">PAS ").concat(player.passing, "</div>\n            <div class=\"DRI\">DRI ").concat(player.dribbling, "</div>\n            <div class=\"DEF\">DEF ").concat(player.defending, "</div>\n            <div class=\"PHY\">PHY ").concat(player.physical, "</div>\n            <div class=\"logos\">\n            <div class=\"flag\"><img  src=\"").concat(player.flag, "\" alt=\"\"></div>\n            <div class=\"logo\"><img class=\"logo\" src=\"").concat(player.logo, "\" alt=\"\"></div>\n            <div class=\"club\"><img  src=\"").concat(player.logo, "\" alt=\"\"></div>\n            </div>\n            </div>\n            <div class=\"dot\">").concat(player.position, "</div>\n        "); // playerinmodal = querySelector(".modal ")
+      playersBadge.innerHTML = "\n            <div class=\"playerCard\">\n            <div class=\"rating\"> <span class=\"ratingnum\">".concat(player.rating, "</span> <span class=\"position\">").concat(player.position, "</span></div>\n            <div class=\"ppicture\"><img src=\"").concat(player.photo, "\" alt=\"\"></div>\n            <div class=\"pname\">").concat(player.name, "</div>\n            <div class=\"PAC\">PAC ").concat(player.pace, "</span></div>\n            <div class=\"SHO\">SHO ").concat(player.shooting, "</div>\n            <div class=\"PAS\">PAS ").concat(player.passing, "</div>\n            <div class=\"DRI\">DRI ").concat(player.dribbling, "</div>\n            <div class=\"DEF\">DEF ").concat(player.defending, "</div>\n            <div class=\"PHY\">PHY ").concat(player.physical, "</div>\n            <div class=\"logos\">\n            <div class=\"flag\"><img  src=\"").concat(player.flag, "\" alt=\"\"></div>\n            <div class=\"logo\"><img class=\"logo\" src=\"").concat(player.logo, "\" alt=\"\"></div>\n            <div class=\"club\"><img  src=\"").concat(player.logo, "\" alt=\"\"></div>\n            </div>\n            </div>\n            <div class=\"dotm\">").concat(player.position, "</div>\n        "); // playerinmodal = querySelector(".modal ")
 
       modal.appendChild(playersBadge);
     }
@@ -151,26 +151,28 @@ function renderPlayerModal(arrplayersRpm, pos) {
       }
     }
   }
-} // let dotinmodal = document.querySelectorAll(".modal .dot");
-// Array.from(dotinmodal).forEach(dot => 
-// {
-//     dot.addEventListener("click", () =>
-//     {
-//         // element.parentNode.removeChild(element);
-//         let formationSection = document.querySelector(".formation");
-//         let captured = document.querySelector(`.formation .${pos}`)
-//         // console.log("captured below")
-//         captured.parentNode.removeChild(captured);
-//         // console.log(captured);
-//         captured.remove();
-//         let modal = document.querySelector(".modal")
-//         let cardInModal = document.querySelector(`.modal .${pos}`);
-//         console.log("cardinModal" +cardInModal);
-//         // console.log("cardinModal" + cardInModal);
-//         formationSection.appendChild(cardInModal);
-//         formationSection.style.display = "grid";
-//         modal.style.display = "none";
-//     let dot = document.querySelectorAll(".dot");
+
+  var dotinmodal = document.querySelectorAll(".dotm");
+  Array.from(dotinmodal).forEach(function (dot) {
+    dot.addEventListener("click", function () {
+      // element.parentNode.removeChild(element);
+      var formationSection = document.querySelector(".formation");
+      var captured = document.querySelector(".formation .".concat(pos)); //         // console.log("captured below")
+      // captured.parentNode.removeChild(captured);
+      //         // console.log(captured);
+
+      captured.remove();
+      var modal = document.querySelector(".modal");
+      var cardInModal = document.querySelector(".modal .".concat(pos)); //         console.log("cardinModal" +cardInModal);
+      //         // console.log("cardinModal" + cardInModal);
+
+      formationSection.appendChild(cardInModal);
+      formationSection.style.display = "grid";
+      modal.style.display = "none";
+      dot.className = "dot";
+    });
+  });
+} //     let dot = document.querySelectorAll(".dot");
 //     Array.from(dot).forEach(doty => 
 //         {
 //             doty.addEventListener("click", ()=>

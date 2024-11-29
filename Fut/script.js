@@ -149,34 +149,36 @@ function renderPlayerModal (arrplayersRpm, pos)
             <div class="club"><img  src="${player.logo}" alt=""></div>
             </div>
             </div>
-            <div class="dot">${player.position}</div>
+            <div class="dotm">${player.position}</div>
         `
 
         // playerinmodal = querySelector(".modal ")
         modal.appendChild(playersBadge);
-
     }
-}
-    // let dotinmodal = document.querySelectorAll(".modal .dot");
-    // Array.from(dotinmodal).forEach(dot => 
-    // {
-    //     dot.addEventListener("click", () =>
-    //     {
-    //         // element.parentNode.removeChild(element);
-    //         let formationSection = document.querySelector(".formation");
-    //         let captured = document.querySelector(`.formation .${pos}`)
+
+    let dotinmodal = document.querySelectorAll(".dotm");
+    Array.from(dotinmodal).forEach(dot => 
+    {
+        dot.addEventListener("click", () =>
+        {
+            // element.parentNode.removeChild(element);
+            let formationSection = document.querySelector(".formation");
+            let captured = document.querySelector(`.formation .${pos}`)
     //         // console.log("captured below")
-    //         captured.parentNode.removeChild(captured);
+            // captured.parentNode.removeChild(captured);
     //         // console.log(captured);
           
-    //         captured.remove();
-    //         let modal = document.querySelector(".modal")
-    //         let cardInModal = document.querySelector(`.modal .${pos}`);
+            captured.remove();
+            let modal = document.querySelector(".modal")
+            let cardInModal = document.querySelector(`.modal .${pos}`);
     //         console.log("cardinModal" +cardInModal);
     //         // console.log("cardinModal" + cardInModal);
-    //         formationSection.appendChild(cardInModal);
-    //         formationSection.style.display = "grid";
-    //         modal.style.display = "none";
+            formationSection.appendChild(cardInModal);
+            formationSection.style.display = "grid";
+            modal.style.display = "none";
+            dot.className = "dot"
+        })})
+    }
         //     let dot = document.querySelectorAll(".dot");
         //     Array.from(dot).forEach(doty => 
         //         {

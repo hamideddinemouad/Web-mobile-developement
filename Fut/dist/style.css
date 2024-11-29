@@ -139,7 +139,7 @@ main {
   grid-column: 7;
 }
 
-.dot {
+.dot, .dotm {
   width: 40px;
   height: 30px;
   background: #008080;
@@ -151,7 +151,7 @@ main {
   font-weight: 400;
   font-style: normal;
 }
-.dot:hover {
+.dot:hover, .dotm:hover {
   background: #6666ff;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
 }

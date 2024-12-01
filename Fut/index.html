@@ -12,45 +12,82 @@
 </head>
 <body>
     <main>
-        <!-- <div class="playerCard1">
-            <img src="assets/img/badge_total_rush.webp" alt="">
-            <div class="textOverlay"></div>
-          </div> -->
-       
-        <!-- <div class="GK"><div class="dot">GK</div></div>
-
-        <div class="CBL"><div class="dot">CBL</div></div>
-
-        <div class="CBR"><div class="dot">CBR</div></div>
-
-        <div class="CBC"><div class="dot">CBC</div></div>
-
-        <div class="LB"> <div class="dot">LB</div></div>
-
-        <div class="RB"> <div class="dot">RB</div></div>
-
-        <div class="MDF"><div class="dot">MDF</div></div>
-
-        <div class="CMR"><div class="dot">CMR</div></div>
-
-        <div class="CML"><div class="dot">CML</div></div>
-
-        <div class="ML"><div class="dot">ML</div></div>
-
-        <div class="MR"><div class="dot">MR</div></div>
-
-        <div class="STR"><div class="dot">STR</div></div>
-
-        <div class="STL"><div class="dot">STL</div></div>
-
-        <div class="STM"><div class="dot">STM</div></div>
-
-        <div class="FWR"><div class="dot">FWR</div></div>
-
-        <div class="FWL"><div class="dot">FWL</div></div> -->
-
+        <form id="the-form" action="">
+            <h3 class="lat-form-title">Create Custom Player</h3>
+          
+            <label class="lat-label">Name:</label>
+            <input id="player-name" class="lat-input" placeholder="Name:"  required>
+          
+            <label class="lat-label">Position:</label>
+            <input id="player-position" class="lat-input" placeholder="Position:"  required>
+          
+            <label class="lat-label">Club:</label>
+            <input id="player-club" class="lat-input" placeholder="Club:"  required>
+          
+            <label class="lat-label">Nationality:</label>
+            <input id="player-nationality" class="lat-input" placeholder="Nationality:" required>
+          
+            <label class="lat-label">Rating:</label>
+            <input id="player-rating" class="lat-input" placeholder="90" type="number" max="99" required>
+          
+            <label class="lat-label">Pace:</label>
+            <input id="player-pace" class="lat-input" placeholder="91" value="91" type="number" max="99" required>
+          
+            <label class="lat-label">Dribbling:</label>
+            <input id="player-dribbling" class="lat-input" placeholder="94" value="94" type="number" max="99" required>
+          
+            <label class="lat-label">Shooting:</label>
+            <input id="player-shooting" class="lat-input" placeholder="83" value="83" type="number" max="99" required>
+          
+            <label class="lat-label">Passing:</label>
+            <input id="player-passing" class="lat-input" placeholder="86" value="86" type="number" max="99" required>
+          
+            <label class="lat-label">Defending:</label>
+            <input id="player-defending" class="lat-input" placeholder="37" value="37" type="number" max="99" required>
+          
+            <label class="lat-label">Physical:</label>
+            <input id="player-physical" class="lat-input" placeholder="61" value="61" type="number" max="99" required>
+          
+            <label class="lat-label">Photo URL:</label>
+            <input id="player-photo" class="lat-input" placeholder="link" value="" required>
+          
+            <label class="lat-label">Flag URL:</label>
+            <input id="player-flag" class="lat-input" placeholder="link" value="" required>
+          
+            <label class="lat-label">Logo URL:</label>
+            <input id="player-logo" class="lat-input" placeholder="link" value="" required>
+          
+            <button type="submit" class="lat-btn">Add Player</button>
+          </form>
 
         <section class="control-panel">
+            <div class="lat-menu">
+                <h1 class="lat-title">Menu</h1>
+        
+                <!-- Formation Selection -->
+                <div class="lat-formation-selection">
+                    <h2 class="lat-subtitle">Select Formation</h2>
+                    <button id="fft" class="lat-btn" >4-5-1</button>
+                    <button id="ftt" class="lat-btn" >4-3-3</button>
+                    <button id="tft" class="lat-btn" >3-4-3</button>
+                </div>
+        
+
+                <div class="lat-player-customization">
+                    <h2 class="lat-subtitle">Add or Modify Player</h2>
+                    <button id="custom"class="lat-btn" >Add Custom Player</button>
+                </div>
+        
+
+                <div class="lat-player-form lat-modify-player-form">
+                    <h3 class="lat-form-title">Modify Existing Player</h3>
+                    <label class="lat-label">Player Name:</label>
+                    <input class="lat-input existing-player-name" placeholder="Enter Player Name to Modify">
+                    <label class="lat-label">New Position:</label>
+                    <input class="lat-input new-position" placeholder="Enter New Position">
+                    <button class="lat-btn">Modify Player</button>
+                </div>
+            </div>
         </section>
     </main>
 </body>

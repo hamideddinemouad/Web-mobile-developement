@@ -5,11 +5,11 @@
 }
 
 body {
-  height: 100%;
-  width: 100%;
+  width: 100vw;
   background: linear-gradient(rgba(0, 0, 0, 0.5), black), url("../assets/img/stadium_background.webp");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 main {
@@ -17,10 +17,11 @@ main {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  gap: 0;
   padding: 10px;
+  overflow: scroll;
 }
 
 .formation {
@@ -36,10 +37,10 @@ main {
 }
 
 .control-panel {
-  width: 30%;
-  height: 20%;
-  background-color: #000000;
-  color: aqua;
+  align-self: flex-end;
+  width: 200px;
+  font-family: "Bungee Spice", serif;
+  font-weight: 400;
 }
 
 .playerCard {
@@ -271,9 +272,112 @@ main {
 .modal {
   height: 100vh;
   width: 100vw;
-  background-color: black;
+  backdrop-filter: blur(1px);
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.quit {
+  font-family: "Bungee Spice", serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #5037a2;
+  /* Red background for a quit/exit theme */
+  color: white;
+  border: none;
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  /* Rounded corners */
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.quit:hover {
+  background-color: #d32f2f;
+  /* Darker red on hover */
+  transform: scale(1.1);
+  /* Slightly enlarges on hover */
+}
+
+.quit:focus {
+  outline: none;
+}
+
+.quit:active {
+  background-color: #c62828;
+  /* Darkest red when clicked */
+}
+
+.lat-menu {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(1px);
+  width: 100%;
+}
+
+.lat-title {
+  text-align: center;
+  font-size: 24px;
+}
+
+.lat-subtitle {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.lat-btn {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Bungee Spice", serif;
+  font-weight: 100;
+}
+
+.lat-btn:hover {
+  background-color: #45a049;
+}
+
+#the-form {
+  display: block;
+  /* Hidden by default (use JS to toggle visibility) */
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  /* Light background for modal */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  font-family: "Bungee Spice", serif;
+}
+
+.lat-player-form {
+  display: none;
+  margin-top: 20px;
+}
+
+.lat-input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.lat-label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.lat-form-title {
+  font-size: 20px;
+  margin-bottom: 10px;
 }

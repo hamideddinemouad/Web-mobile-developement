@@ -1,12 +1,4 @@
-{/* <div class="dot">CDM</div> */}
 
-// let arrayOfPlayerforFormation = [];
-// insertDots();
-// function playerInMatch(localFormationArray, playerName)
-// {
-//     localFormationArray.push(playerName);
-//     return(localFormationArray);
-// }
 function checkIfPlayerInArray(localFormationArray, playerName)
 {
     // console.log(localFormationArray);
@@ -16,58 +8,150 @@ function checkIfPlayerInArray(localFormationArray, playerName)
     }
     return true;
 }
-function fourThreeThreeDefault(jsonArrayFttd)
+function fourThreeThreeDefault(jsonArrayFttd, fttdPlayerArray = [])
 {
+    // console.log("fttdplayerarray"+ fttdPlayerArray);
+    let storedFormation = JSON.parse(localStorage.getItem("fourfourthree"));
+    if (storedFormation)
+    {
+        fttdPlayerArray = storedFormation;
+    }
     let mainHtml = document.querySelector("main");
     let formationSection = document.createElement("section");
     formationSection.classList.add("formation");
-    let fttdPlayerArray = [];
-    function playerInMatch(player)
+    function playerInMatch(player, operation)
     {
-        fttdPlayerArray.push(player);
+        if (operation > 0)
+        {
+            // console.log("operation")
+            fttdPlayerArray.push(player);
+            // console.log(fttdPlayerArray);
+            return
+        }
+        fttdPlayerArray = fttdPlayerArray.filter(playerinarr => playerinarr !== player);
     }
     const func = playerInMatch;
-
+    let playerAddedArr = []
+    function playerAdded(player)
+    {
+        playerAddedArr.push(player);
+    }
+    const funcDupli = playerAdded;
     formationSection.innerHTML = `
-            <div class="GK">${(fillpositionrand("GK", jsonArrayFttd, fttdPlayerArray, func))}</div>
+            <div class="GK">${(fillpositionrand("GK", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli))}</div>
             
-            <div class="CBL">${fillpositionrand("CB", jsonArrayFttd, fttdPlayerArray, func)}</div>
+            <div class="CBL">${fillpositionrand("CB", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
 
-            <div class="CBR">${fillpositionrand("CB", jsonArrayFttd, fttdPlayerArray, func)}</div>
+            <div class="CBR">${fillpositionrand("CB", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
 
-            <div class="LB">${fillpositionrand("LB", jsonArrayFttd, fttdPlayerArray, func)} </div>
+            <div class="LB">${fillpositionrand("LB", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)} </div>
 
-            <div class="RB"> ${fillpositionrand("RB", jsonArrayFttd, fttdPlayerArray, func)}</div>
+            <div class="RB"> ${fillpositionrand("RB", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
 
-            <div class="MDF">${fillpositionrand("CM", jsonArrayFttd, fttdPlayerArray, func)}</div>
+            <div class="MDF">${fillpositionrand("CDM", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
 
-            <div class="ML">${fillpositionrand("CM", jsonArrayFttd, fttdPlayerArray, func)}</div>
+            <div class="ML">${fillpositionrand("CML", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
 
-            <div class="MR">${fillpositionrand("CM", jsonArrayFttd, fttdPlayerArray, func)}</div>
+            <div class="MR">${fillpositionrand("CMR", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
 
-            <div class="STM">${fillpositionrand("ST", jsonArrayFttd, fttdPlayerArray, func)}</div>
+            <div class="STM">${fillpositionrand("ST", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
 
-            <div class="FWR">${fillpositionrand("RW", jsonArrayFttd, fttdPlayerArray, func)}</div>
+            <div class="FWR">${fillpositionrand("RW", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
 
-            <div class="FWL">${fillpositionrand("LW", jsonArrayFttd, fttdPlayerArray, func)}</div>
-
+            <div class="FWL">${fillpositionrand("LW", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
 
             `
+            localStorage.setItem("fourfourthree", JSON.stringify(fttdPlayerArray));
     mainHtml.appendChild(formationSection);
+    let dot = document.querySelectorAll(".dot");
+    Array.from(dot).forEach(doty => 
+        {
+            doty.addEventListener("click", ()=>
+            {
+    //dot clicked -takes you to players - player clicked change it in the array of the formation
+    //rerender the formation array again
+    //show all players with that pos
+    //pos clicked change it with formation
+    //update formation
+    //rerender it
+                formationSection.style.display = "none";
+                let positionDot = doty.innerText;
+                // console.log(positionDot);
+                renderPlayerModal(showAllPos(positionDot, jsonArrayFttd, fttdPlayerArray), doty.parentElement.className)
+                let dotsInModal = document.querySelectorAll(".modal .dot");
+                Array.from(dotsInModal).forEach(dotyModal =>
+                {
+                    dotyModal.addEventListener("click", ()=>
+                    {
+                        // console.log("clicked");
+                        let playerNameInFormation = doty.id.replace("-dot", "");
+                        // console.log(playerName);
+                        fttdPlayerArray = fttdPlayerArray.filter(obj => obj.name !== playerNameInFormation);
+                        let PlayerNameInModal = dotyModal.id.replace("-dot", "");
+                        // console.log(fttdPlayerArray);
+                        let objtofind= jsonArrayFttd.find(objJson => objJson.name === PlayerNameInModal)
+                        // console.log(objtofind);
+                        fttdPlayerArray.push(objtofind);
+                        document.querySelector(".modal").remove();
+
+                        // console.log(fttdPlayerArray);
+                        formationSection.remove();
+                        localStorage.setItem("fourfourthree", JSON.stringify(fttdPlayerArray));
+                        fourThreeThreeDefault(jsonArrayFttd, fttdPlayerArray);
+                        // console.log(doty.id);
+                    })
+                }
+                )
+            })
+        }
+        )
     return fttdPlayerArray;
+}
+function checkIfPlayerInArray(localFormationArray, playerName)
+{
+    // console.log(localFormationArray);
+    if (localFormationArray.includes(playerName))
+    {
+        return false;
+    }
+    return true;
 }
 
 
-function fillpositionrand(posStr, jsonArrayFpr, alreadyInMatchArr, theFunc)
+
+function fillpositionrand(posStr, jsonArrayFpr, alreadyInMatchArr, theFunc, playersArrDup, funcDuplicate)
 {
         let player_found;
-        for (let player of jsonArrayFpr)
+        let addedplayers = 0;
+        if (alreadyInMatchArr.length !== 11)
         {
-            if (player.position === posStr && !(alreadyInMatchArr.some(playInArr => playInArr.name === player.name)))
+            for (let player of jsonArrayFpr)
             {
-                player_found = player;
-                theFunc(player_found);
-                break;
+                if (player.position === posStr && !(alreadyInMatchArr.some(playInArr => playInArr.name === player.name)))
+                {
+                    player_found = player;
+                    theFunc(player_found, 1);
+                    // console.log("pushedplayer")
+                    // console.log(player_found);
+                    break;
+            }
+            // console.log("condition not met");
+        }
+        }
+        else
+        {
+            for (let player of alreadyInMatchArr)
+            {
+                // console.log(alreadyInMatchArr);
+                // let  playerinmatch = document.querySelector(`.formation`)
+                // console.log(playerinmatch);
+                if (posStr === player.position && !(playersArrDup.some(playerInArr => player.name === playerInArr.name)))
+                {
+                    // console.log("condition met")
+                    player_found = player;
+                    funcDuplicate(player_found);
+                    break;
+                }
             }
         }
         let playersBadge = 
@@ -84,7 +168,6 @@ function fillpositionrand(posStr, jsonArrayFpr, alreadyInMatchArr, theFunc)
                 <div class="PHY">PHY ${player_found.physical}</div>
                 <div class="logos">
                 <div class="flag"><img  src="${player_found.flag}" alt=""></div>
-                <div class="logo"><img class="logo" src="${player_found.logo}" alt=""></div>
                 <div class="club"><img  src="${player_found.logo}" alt=""></div>
                 </div>
             </div>
@@ -100,7 +183,7 @@ async function Apicons()
     let converted = await fetched.json();
     return (converted);
 }
-function renderPlayerModal (arrplayersRpm, pos)
+function renderPlayerModal (arrplayersRpm, pos, jsonArr, fttdPlayerArray)
 {
     let main = document.querySelector("main");
     let modal = document.createElement("div");
@@ -123,102 +206,26 @@ function renderPlayerModal (arrplayersRpm, pos)
             <div class="PHY">PHY ${player.physical}</div>
             <div class="logos">
             <div class="flag"><img  src="${player.flag}" alt=""></div>
-            <div class="logo"><img class="logo" src="${player.logo}" alt=""></div>
             <div class="club"><img  src="${player.logo}" alt=""></div>
             </div>
             </div>
             <div id="${player.name}-dot" class="dot">${player.position}</div>
         `
-
         // playerinmodal = querySelector(".modal ")
         modal.appendChild(playersBadge);
     }
+    let quit = document.createElement("button");
+    quit.className = "quit";
+    quit.innerText = "BACK"
+    quit.addEventListener("click", () =>
+    {
+        modal.remove();
+        document.querySelector(".formation").style.display = "grid";
+    })
+    modal.appendChild(quit);
     main.appendChild(modal);
-    setUpListeners(pos ,modal);
+
 }
-function setUpListeners (pos, formationArr)
-{
-    let dots = document.querySelectorAll(".modal .dot");
-    dots = Array.from(dots);
-    function insidemodalevent (dot)
-    {
-        function outsidemodalevent (dot)
-        {
-            let formationSection = document.querySelector(".formation");
-            formationSection.style.display = "none";
-    
-            positionDot = dot.innerText;
-    
-            renderPlayerModal(showAllPos(positionDot, jsonArr, fttdPlayerArray), dot.parentElement.className);
-    
-        }
-        let formationSection = document.querySelector(".formation");
-            let modal = document.querySelector(".modal");
-
-            let playerInFormation = document.querySelector(`.formation .${pos}`);
-            playerInFormation.remove();     
-            let formation = document.querySelector(`.formation`);
-            formation.appendChild(dot.parentElement);
-            console.log("modal is below");
-            console.log(modal);
-            modal.remove();
-            formationSection.style.display = "grid";
-            dot.removeEventListener("click", () => insidemodalevent());
-            dot.addEventListener("click", () => outsidemodalevent(dot));
-    }
-
-    for (let dot of dots)
-    {
-        dot.addEventListener("click", () => insidemodalevent(dot));
-    }
-
-    }
-            //     let formationSection = document.querySelector(".formation");
-        //     let modal = document.querySelector(".modal");
-           
-        //     console.log(dot.id);
-        //     let playerInFormation = document.querySelector(`.formation .${pos}`);
-        //     playerInFormation.remove();
-        //     // let karim = document.querySelector('#Karim Benzema')
-        //     // console.log();
-        //     // let playerReplaceQ = document.querySelector(`#${playerReplace}`);
-        //     // console.log("player replace q" + playerReplaceQ);
-        //     // formationSection.appendChild(playerReplaceQ);
-            
-        //     let formation = document.querySelector(`.formation`);
-        //     // console.log(dot);
-        //     formation.appendChild(dot.parentElement);
-        //     console.log("modal is below")
-        //     console.log(modal);
-        //     modal.remove();
-        //     formationSection.style.display = "grid";
-        //     dot.removeEventListener();
-        //     dot.addEventListener("click", ()=>
-        //         {
-        //             let formationSection = document.querySelector(".formation")
-        //             // let modal = document.querySelector(".modal");
-        //             formationSection.style.display = "none";
-        //             // modal.style.display = "flex";
-        //             positionDot = dot.innerText;
-        //             // console.log("doty parent" + doty.parentElement.className);
-        //             // console.log(doty.id);
-        //             // console.log(doty.parentElement.className);
-        //             // console.log("event 2 ran");
-        //             renderPlayerModal(showAllPos(positionDot, jsonArr, fttdPlayerArray), dot.parentElement.className);
-        //             // showAllPos(positionDot, jsonArr);
-        //             // console.log(positionDot);
-        //             // console.log(formationSection);
-        //         })
-
-            
-        //     // modal.remove();
-            
-            
-            
-        //     // console.log(playerInFormation);
-        //     // console.log(`.formation #${dot.id}`);
-        // })      
-
 function showAllPos (posStr, jsonArrSap, fttdPlayerArray)
 {
     let arrplayers = [];
@@ -226,46 +233,283 @@ function showAllPos (posStr, jsonArrSap, fttdPlayerArray)
     {
         if (player.position === posStr && !fttdPlayerArray.some(playerInArr => playerInArr.name === player.name))
         {
+            // console.log("ran");
             arrplayers.push(player);
         }
     }
     return (arrplayers);
 }
 
-async function main()
+function fourfourtwo(jsonArrayFttd, fttdPlayerArray = [])
 {
-    // let jsonArray = await Apicons();
-    let jsonArr =  await Apicons();
-    let positionDot;
-    // genRandPlayers(jsonArr);
-    let fttdPlayerArray = fourThreeThreeDefault(jsonArr);
+    // console.log("fttdplayerarray"+ fttdPlayerArray);
+    let storedFormation = JSON.parse(localStorage.getItem("fourfourtwo"));
+    if (storedFormation)
+    {
+        fttdPlayerArray = storedFormation;
+    }
+    let mainHtml = document.querySelector("main");
+    let formationSection = document.createElement("section");
+    formationSection.classList.add("formation");
+    function playerInMatch(player, operation)
+    {
+        if (operation > 0)
+        {
+            // console.log("operation")
+            fttdPlayerArray.push(player);
+            // console.log(fttdPlayerArray);
+            return
+        }
+        fttdPlayerArray = fttdPlayerArray.filter(playerinarr => playerinarr !== player);
+    }
+    const func = playerInMatch;
+    let playerAddedArr = []
+    function playerAdded(player)
+    {
+        playerAddedArr.push(player);
+    }
+    const funcDupli = playerAdded;
+    formationSection.innerHTML = `
+            <div class="GK">${(fillpositionrand("GK", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli))}</div>
+            
+            <div class="CBL">${fillpositionrand("CB", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="CBR">${fillpositionrand("CB", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="LB">${fillpositionrand("LB", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)} </div>
+
+            <div class="RB"> ${fillpositionrand("RB", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="MDF">${fillpositionrand("CDM", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="CMR">${fillpositionrand("CDM", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="CML">${fillpositionrand("CDM", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="ML">${fillpositionrand("CML", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="MR">${fillpositionrand("CMR", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="STM">${fillpositionrand("ST", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            `
+            localStorage.setItem("fourfourtwo", JSON.stringify(fttdPlayerArray));
+    mainHtml.appendChild(formationSection);
     let dot = document.querySelectorAll(".dot");
-    let test = 0;
     Array.from(dot).forEach(doty => 
         {
             doty.addEventListener("click", ()=>
             {
-                let formationSection = document.querySelector(".formation")
-                // let modal = document.querySelector(".modal");
                 formationSection.style.display = "none";
-                // modal.style.display = "flex";
-                positionDot = doty.innerText;
-                // console.log("doty parent" + doty.parentElement.className);
-                // console.log(doty.id);
-                // console.log(doty.parentElement.className);
-                renderPlayerModal(showAllPos(positionDot, jsonArr, fttdPlayerArray), doty.parentElement.className);
-                // showAllPos(positionDot, jsonArr);
+                let panelMenu = document.querySelector(".control-panel");
+                // panelMenu.style.display = "none";
+                let positionDot = doty.innerText;
                 // console.log(positionDot);
-                // console.log(formationSection);
+                renderPlayerModal(showAllPos(positionDot, jsonArrayFttd, fttdPlayerArray), doty.parentElement.className)
+                let dotsInModal = document.querySelectorAll(".modal .dot");
+                Array.from(dotsInModal).forEach(dotyModal =>
+                {
+                    dotyModal.addEventListener("click", ()=>
+                    {
+                        // console.log("clicked");
+                        let playerNameInFormation = doty.id.replace("-dot", "");
+                        // console.log(playerName);
+                        fttdPlayerArray = fttdPlayerArray.filter(obj => obj.name !== playerNameInFormation);
+                        let PlayerNameInModal = dotyModal.id.replace("-dot", "");
+                        // console.log(fttdPlayerArray);
+                        let objtofind= jsonArrayFttd.find(objJson => objJson.name === PlayerNameInModal)
+                        // console.log(objtofind);
+                        fttdPlayerArray.push(objtofind);
+                        document.querySelector(".modal").remove();
+
+                        // console.log(fttdPlayerArray);
+                        let panelMenu = document.querySelector(".control-panel");
+                        
+                        formationSection.remove();
+                        panelMenu.style.display = "block";
+                        localStorage.setItem("fourfourtwo", JSON.stringify(fttdPlayerArray));
+                        fourfourtwo(jsonArrayFttd, fttdPlayerArray);
+                        // console.log(doty.id);
+                    })
+                }
+                )
             })
         }
         )
-    
-    
-    // fillpositionrand("CB", jsonArray);
+    return fttdPlayerArray;
+}
+function threefourthree(jsonArrayFttd, fttdPlayerArray = [])
+{
+    // console.log("fttdplayerarray"+ fttdPlayerArray);
+    let storedFormation = JSON.parse(localStorage.getItem("threethreefour"));
+    if (storedFormation)
+    {
+        fttdPlayerArray = storedFormation;
+    }
+    let mainHtml = document.querySelector("main");
+    let formationSection = document.createElement("section");
+    formationSection.classList.add("formation");
+    function playerInMatch(player, operation)
+    {
+        if (operation > 0)
+        {
+            // console.log("operation")
+            fttdPlayerArray.push(player);
+            // console.log(fttdPlayerArray);
+            return
+        }
+        fttdPlayerArray = fttdPlayerArray.filter(playerinarr => playerinarr !== player);
+    }
+    const func = playerInMatch;
+    let playerAddedArr = []
+    function playerAdded(player)
+    {
+        playerAddedArr.push(player);
+    }
+    const funcDupli = playerAdded;
+    formationSection.innerHTML = `
+            <div class="GK">${(fillpositionrand("GK", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli))}</div>
+            
+            <div class="CBC">${fillpositionrand("CB", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="LB">${fillpositionrand("LB", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)} </div>
+
+            <div class="RB"> ${fillpositionrand("RB", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="MDF">${fillpositionrand("CDM", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="CML">${fillpositionrand("CML", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="CMR">${fillpositionrand("CMR", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="STL">${fillpositionrand("ST", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="STR">${fillpositionrand("ST", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="FWR">${fillpositionrand("RW", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            <div class="FWL">${fillpositionrand("LW", jsonArrayFttd, fttdPlayerArray, func, playerAddedArr, funcDupli)}</div>
+
+            `
+            localStorage.setItem("threethreefour", JSON.stringify(fttdPlayerArray));
+    mainHtml.appendChild(formationSection);
+    let dot = document.querySelectorAll(".dot");
+    Array.from(dot).forEach(doty => 
+        {
+            doty.addEventListener("click", ()=>
+            {
+                formationSection.style.display = "none";
+                let panelMenu = document.querySelector(".control-panel");
+                // panelMenu.style.display = "none";
+                let positionDot = doty.innerText;
+                // console.log(positionDot);
+                renderPlayerModal(showAllPos(positionDot, jsonArrayFttd, fttdPlayerArray), doty.parentElement.className)
+                let dotsInModal = document.querySelectorAll(".modal .dot");
+                Array.from(dotsInModal).forEach(dotyModal =>
+                {
+                    dotyModal.addEventListener("click", ()=>
+                    {
+                        // console.log("clicked");
+                        let playerNameInFormation = doty.id.replace("-dot", "");
+                        // console.log(playerName);
+                        fttdPlayerArray = fttdPlayerArray.filter(obj => obj.name !== playerNameInFormation);
+                        let PlayerNameInModal = dotyModal.id.replace("-dot", "");
+                        // console.log(fttdPlayerArray);
+                        let objtofind= jsonArrayFttd.find(objJson => objJson.name === PlayerNameInModal)
+                        // console.log(objtofind);
+                        fttdPlayerArray.push(objtofind);
+                        document.querySelector(".modal").remove();
+
+                        // console.log(fttdPlayerArray);
+                        let panelMenu = document.querySelector(".control-panel");
+                        
+                        formationSection.remove();
+                        panelMenu.style.display = "block";
+                        localStorage.setItem("threethreefour", JSON.stringify(fttdPlayerArray));
+                        threefourthree(jsonArrayFttd, fttdPlayerArray);
+                        // console.log(doty.id);
+                    })
+                }
+                )
+            })
+        }
+        )
+    return fttdPlayerArray;
+}
+async function main()
+{
+    let jsonArr;
+    let database = JSON.parse(localStorage.getItem("Database"))
+    if (!database)
+    {
+        jsonArr = await Apicons();
+        localStorage.setItem("Database", JSON.stringify(jsonArr));
+    }
+    else
+    {
+        jsonArr = database;
+    }
+    console.log(database);
+    // fourThreeThreeDefault(jsonArr);
+    let fft = document.querySelector("#fft");
+    fft.addEventListener("click", () =>{
+        let formationsection = document.querySelector(".formation");
+        if (formationsection)
+        {
+            formationsection.remove();
+        }
+        fourfourtwo(jsonArr);
+    })
+    let ftt = document.querySelector("#ftt");
+    ftt.addEventListener("click", () =>{
+        let formationsection = document.querySelector(".formation");
+        if (formationsection)
+        {
+            formationsection.remove();
+        }
+        fourThreeThreeDefault(jsonArr);
+    })
+    document.getElementById("the-form").addEventListener("submit", (normalSub) => {
+        normalSub.preventDefault();
+        let playerData = {
+            name: document.getElementById("player-name").value,
+            position: document.getElementById("player-position").value,
+            club: document.getElementById("player-club").value,
+            nationality: document.getElementById("player-nationality").value,
+            rating: document.getElementById("player-rating").value,
+            pace: document.getElementById("player-pace").value,
+            dribbling: document.getElementById("player-dribbling").value,
+            shooting: document.getElementById("player-shooting").value,
+            passing: document.getElementById("player-passing").value,
+            defending: document.getElementById("player-defending").value,
+            physical: document.getElementById("player-physical").value,
+            photo: document.getElementById("player-photo").value,
+            flag: document.getElementById("player-flag").value,
+            logo: document.getElementById("player-logo").value,
+          };
+          database.push(playerData);
+          localStorage.setItem("Database", JSON.stringify(database));
+          alert("saved!");
+        });
+        let addpButton = document.querySelector("#custom");
+        addpButton.addEventListener("click", ()=>
+        {
+            document.querySelector("#the-form").scrollIntoView({
+                behavior: 'smooth', block: 'start'
+            })
+            // document.querySelector(".control-panel").style.display = "none";
+        })
+        let tft = document.querySelector("#tft");
+        tft.addEventListener("click", () =>{
+            let formationsection = document.querySelector(".formation");
+            if (formationsection)
+            {
+                formationsection.remove();
+            }
+            threefourthree(jsonArr);
+        })
 
 }
-// the_f();
 main();
 
 

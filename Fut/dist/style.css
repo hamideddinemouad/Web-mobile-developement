@@ -14,9 +14,9 @@ body {
 main {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap-reverse;
-  gap: 0;
+  gap: 4%;
   padding: 10px;
   overflow: visible;
 }
@@ -40,6 +40,18 @@ main {
   font-weight: 400;
 }
 
+#Lionel\ Messi, #Cristiano\ Ronaldo, #Kevin\ De\ Bruyne {
+  background-image: url("../assets/img/badge_ballon_dor.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 200px;
+  width: 120px;
+  color: white;
+  display: grid;
+  grid-template-columns: 5px repeat(6, 1fr) 3px;
+  grid-template-rows: 5px repeat(5, 1fr) 5px;
+}
 .playerCard {
   background-image: url("../assets/img/badge_total_rush.webp");
   background-size: cover;

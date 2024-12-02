@@ -79,6 +79,8 @@ function fourThreeThreeDefault(jsonArrayFttd, fttdPlayerArray = [])
                 // console.log(positionDot);
                 renderPlayerModal(showAllPos(positionDot, jsonArrayFttd, fttdPlayerArray), doty.parentElement.className)
                 let dotsInModal = document.querySelectorAll(".modal .dot");
+                document.querySelector(".modal").scrollIntoView({
+                    behavior: 'smooth', block: 'start'})
                 Array.from(dotsInModal).forEach(dotyModal =>
                 {
                     dotyModal.addEventListener("click", ()=>
@@ -307,6 +309,8 @@ function fourfourtwo(jsonArrayFttd, fttdPlayerArray = [])
                 // console.log(positionDot);
                 renderPlayerModal(showAllPos(positionDot, jsonArrayFttd, fttdPlayerArray), doty.parentElement.className)
                 let dotsInModal = document.querySelectorAll(".modal .dot");
+                document.querySelector(".modal").scrollIntoView({
+                    behavior: 'smooth', block: 'start'})
                 Array.from(dotsInModal).forEach(dotyModal =>
                 {
                     dotyModal.addEventListener("click", ()=>
@@ -405,6 +409,8 @@ function threefourthree(jsonArrayFttd, fttdPlayerArray = [])
                 // console.log(positionDot);
                 renderPlayerModal(showAllPos(positionDot, jsonArrayFttd, fttdPlayerArray), doty.parentElement.className)
                 let dotsInModal = document.querySelectorAll(".modal .dot");
+                document.querySelector(".modal").scrollIntoView({
+                    behavior: 'smooth', block: 'start'})
                 Array.from(dotsInModal).forEach(dotyModal =>
                 {
                     dotyModal.addEventListener("click", ()=>
@@ -449,7 +455,7 @@ async function main()
     {
         jsonArr = database;
     }
-    console.log(database);
+    // console.log(database);
     // fourThreeThreeDefault(jsonArr);
     let fft = document.querySelector("#fft");
     fft.addEventListener("click", () =>{
@@ -472,20 +478,20 @@ async function main()
     document.getElementById("the-form").addEventListener("submit", (normalSub) => {
         normalSub.preventDefault();
         let playerData = {
-            name: document.getElementById("player-name").value,
-            position: document.getElementById("player-position").value,
-            club: document.getElementById("player-club").value,
-            nationality: document.getElementById("player-nationality").value,
-            rating: document.getElementById("player-rating").value,
-            pace: document.getElementById("player-pace").value,
-            dribbling: document.getElementById("player-dribbling").value,
-            shooting: document.getElementById("player-shooting").value,
-            passing: document.getElementById("player-passing").value,
-            defending: document.getElementById("player-defending").value,
-            physical: document.getElementById("player-physical").value,
-            photo: document.getElementById("player-photo").value,
-            flag: document.getElementById("player-flag").value,
-            logo: document.getElementById("player-logo").value,
+            name: document.querySelector("#player-name").value,
+            position: document.querySelector("#player-position").value,
+            club: document.querySelector("#player-club").value,
+            nationality: document.querySelector("#player-nationality").value,
+            rating: document.querySelector("#player-rating").value,
+            pace: document.querySelector("#player-pace").value,
+            dribbling: document.querySelector("#player-dribbling").value,
+            shooting: document.querySelector("#player-shooting").value,
+            passing: document.querySelector("#player-passing").value,
+            defending: document.querySelector("#player-defending").value,
+            physical: document.querySelector("#player-physical").value,
+            photo: document.querySelector("#player-photo").value,
+            flag: document.querySelector("#player-flag").value,
+            logo: document.querySelector("#player-logo").value,
           };
           database.push(playerData);
           localStorage.setItem("Database", JSON.stringify(database));
@@ -508,8 +514,5 @@ async function main()
             }
             threefourthree(jsonArr);
         })
-
 }
 main();
-
-

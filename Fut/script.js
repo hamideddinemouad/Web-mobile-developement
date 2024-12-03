@@ -1,13 +1,3 @@
-
-function checkIfPlayerInArray(localFormationArray, playerName)
-{
-    // console.log(localFormationArray);
-    if (localFormationArray.includes(playerName))
-    {
-        return false;
-    }
-    return true;
-}
 function fourThreeThreeDefault(jsonArrayFttd, fttdPlayerArray = [])
 {
     // console.log("fttdplayerarray"+ fttdPlayerArray);
@@ -108,15 +98,6 @@ function fourThreeThreeDefault(jsonArrayFttd, fttdPlayerArray = [])
         }
         )
     return fttdPlayerArray;
-}
-function checkIfPlayerInArray(localFormationArray, playerName)
-{
-    // console.log(localFormationArray);
-    if (localFormationArray.includes(playerName))
-    {
-        return false;
-    }
-    return true;
 }
 
 

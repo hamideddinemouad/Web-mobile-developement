@@ -362,6 +362,7 @@ main {
   padding: 20px;
   background-color: #f9f9f9;
   /* Light background for modal */
+  
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -391,7 +392,7 @@ main {
   font-size: 20px;
   margin-bottom: 10px;
 }
-@media (max-width: 609px)
+@media (max-width: 850px)
 {
   #Lionel\ Messi, #Cristiano\ Ronaldo, #Kevin\ De\ Bruyne, #Kylian\ Mbappé
   {
@@ -421,7 +422,7 @@ main {
   }
   .pname
   {
-    font-size: 10px;
+    font-size: 8px;
   }
   .flag img, .logo img, .club img {
     height: 7px;
@@ -451,11 +452,18 @@ main {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    height: auto;
-    /* min-width: 609px; */
+    /* height: auto; */
     width: 100%;
+    min-width: 410px;
+    /* width: 65%; */
+    /* width: 100%; */
     background-image: url("../assets/img/stadium_background.webp");
-    background-size: 100% 100%;
+    /* background-size: cover; */
+    /* background-size: contain; */
+    background-size: auto;
+    /* background-position: 100% 100%; */
+    /* background-position: 100%; */
+    background-position: center;
     background-repeat: no-repeat;
   }
   .ppicture img {

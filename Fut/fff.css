@@ -1,0 +1,393 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), black), url("../assets/img/stadium_background.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    gap: 4%;
+    padding: 10px;
+    overflow: visible;
+  }
+  
+  .formation {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    height: auto;
+    @media min-width: 609px;
+    width: 65%;
+    background-image: url("../assets/img/stadium_background.webp");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  
+  .control-panel {
+    align-self: flex-end;
+    width: 200px;
+    font-family: "Bungee Spice", serif;
+    font-weight: 400;
+  }
+  
+  #Lionel\ Messi, #Cristiano\ Ronaldo, #Kevin\ De\ Bruyne, #Kylian\ Mbappé {
+    background-image: url("../assets/img/badge_ballon_dor.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 200px;
+    width: 120px;
+    color: white;
+    display: grid;
+    grid-template-columns: 5px repeat(6, 1fr) 3px;
+    grid-template-rows: 5px repeat(5, 1fr) 5px;
+  }
+  .playerCard {
+    background-image: url("../assets/img/badge_total_rush.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 200px;
+    width: 120px;
+    color: white;
+    display: grid;
+    grid-template-columns: 5px repeat(6, 1fr) 3px;
+    grid-template-rows: 5px repeat(5, 1fr) 5px;
+  }
+  
+  .PAC, .SHO, .PAS, .DRI, .DEF, .PHY {
+    grid-row: 5;
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 7px;
+    color: cornsilk;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  }
+  
+  .logos {
+    display: flex;
+    justify-content: space-around;
+    grid-row: 6;
+    grid-column: 3/7;
+  }
+  
+  .flag img, .logo img, .club img {
+    height: 10px;
+    width: 10px;
+  }
+  
+  .rating {
+    grid-row: 3;
+    grid-column: 1/9;
+    width: 100%;
+    height: 100%;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    color: cornsilk;
+  }
+  
+  .pname {
+    display: flex;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    color: cornsilk;
+    font-size: 12px;
+    justify-content: center;
+    grid-row: 5;
+    grid-column: 1/9;
+  }
+  
+  .ppicture {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    grid-row: 2/5;
+    grid-column: 1/9;
+  }
+  
+  .ppicture img {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .PAC {
+    grid-column: 2;
+  }
+  
+  .SHO {
+    grid-column: 3;
+  }
+  
+  .PAS {
+    grid-column: 4;
+  }
+  
+  .DRI {
+    grid-column: 5;
+  }
+  
+  .DEF {
+    grid-column: 6;
+  }
+  
+  .PHY {
+    grid-column: 7;
+  }
+  
+  .dot, .dotm {
+    width: 40px;
+    height: 30px;
+    background: #008080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-family: "Bungee Spice", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .dot:hover, .dotm:hover {
+    background: #6666ff;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .GK {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-row: 4;
+    grid-column: 3;
+  }
+  
+  .CBR {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-row: 3;
+    grid-column: 4;
+  }
+  
+  .CBL {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-row: 3;
+    grid-column: 2;
+  }
+  
+  .CBC {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-row: 3;
+    grid-column: 3;
+  }
+  
+  .LB {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-row: 3;
+    grid-column: 1;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .RB {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-row: 3;
+    grid-column: 5;
+  }
+  
+  .MDF, .CMR, .CML, .ML, .MR {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-row: 2;
+  }
+  
+  .MDF {
+    grid-column: 3;
+  }
+  
+  .CMR {
+    grid-column: 4;
+  }
+  
+  .CML {
+    grid-column: 2;
+  }
+  
+  .MR {
+    grid-column: 5;
+  }
+  
+  .ML {
+    grid-column: 1;
+  }
+  
+  .STL, .STR, .FWR, .FWL, .STM {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0;
+    grid-row: 1;
+  }
+  
+  .STL {
+    grid-column: 2;
+  }
+  
+  .STR {
+    grid-column: 4;
+  }
+  
+  .STM {
+    grid-column: 3;
+  }
+  
+  .FWL {
+    grid-column: 1;
+  }
+  
+  .FWR {
+    grid-column: 5;
+  }
+  
+  .modal {
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(1px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .quit {
+    font-family: "Bungee Spice", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #5037a2;
+    /* Red background for a quit/exit theme */
+    color: white;
+    border: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    /* Rounded corners */
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .quit:hover {
+    background-color: #d32f2f;
+    /* Darker red on hover */
+    transform: scale(1.1);
+    /* Slightly enlarges on hover */
+  }
+  
+  .quit:focus {
+    outline: none;
+  }
+  
+  .quit:active {
+    background-color: #c62828;
+    /* Darkest red when clicked */
+  }
+  
+  .lat-menu {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(1px);
+    width: 100%;
+  }
+  
+  .lat-title {
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .lat-subtitle {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .lat-btn {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Bungee Spice", serif;
+    font-weight: 100;
+  }
+  
+  .lat-btn:hover {
+    background-color: #45a049;
+  }
+  
+  #the-form {
+    display: block;
+    /* Hidden by default (use JS to toggle visibility) */
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    /* Light background for modal */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    font-family: "Bungee Spice", serif;
+  }
+  
+  .lat-player-form {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  .lat-input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .lat-label {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  
+  .lat-form-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }

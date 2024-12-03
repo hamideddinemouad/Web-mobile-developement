@@ -40,9 +40,9 @@ main {
   font-weight: 400;
 }
 
-#Lionel\ Messi, #Cristiano\ Ronaldo, #Kevin\ De\ Bruyne {
-  background-image: url("../assets/img/badge_ballon_dor.png");
-  background-size: cover;
+#Lionel\ Messi, #Cristiano\ Ronaldo, #Kevin\ De\ Bruyne, #Kylian\ Mbappé {
+  background-image: url("../assets/img/badge_ballon_dor.webp");
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   height: 200px;
@@ -54,7 +54,7 @@ main {
 }
 .playerCard {
   background-image: url("../assets/img/badge_total_rush.webp");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   height: 200px;
@@ -122,7 +122,7 @@ main {
 
 .ppicture img {
   width: 90px;
-  height: auto;
+  height: 90px;
 }
 
 .PAC {
@@ -255,6 +255,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 0;
   grid-row: 1;
 }
 

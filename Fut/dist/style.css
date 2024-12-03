@@ -26,7 +26,7 @@ main {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(4, 1fr);
   height: auto;
-  min-width: 609px;
+  /* min-width: 609px; */
   width: 65%;
   background-image: url("../assets/img/stadium_background.webp");
   background-size: 100% 100%;
@@ -390,4 +390,80 @@ main {
 .lat-form-title {
   font-size: 20px;
   margin-bottom: 10px;
+}
+@media (max-width: 609px)
+{
+  #Lionel\ Messi, #Cristiano\ Ronaldo, #Kevin\ De\ Bruyne, #Kylian\ Mbappé
+  {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 130px;
+    width: 78px;
+    color: white;
+    display: grid;
+    grid-template-columns: 5px repeat(6, 1fr) 3px;
+    grid-template-rows: 5px repeat(5, 1fr) 5px;
+    font-size: 10px;
+  }
+  .playerCard {
+    background-image: url("../assets/img/badge_total_rush.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 130px;
+    width: 78px;
+    color: white;
+    display: grid;
+    grid-template-columns: 5px repeat(6, 1fr) 3px;
+    grid-template-rows: 5px repeat(5, 1fr) 5px;
+    font-size: 10px;
+  }
+  .pname
+  {
+    font-size: 10px;
+  }
+  .flag img, .logo img, .club img {
+    height: 7px;
+    width: 7px;
+  }
+  .dot, .dotm {
+    width: 26px;
+    height: 20px;
+    background: #008080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-family: "Bungee Spice", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 10px;
+  }
+  .logos {
+    display: flex;
+    justify-content: space-around;
+    grid-row: 5;
+    grid-column: 3/7;
+    align-items: end;
+  }
+  .formation {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    height: auto;
+    /* min-width: 609px; */
+    width: 100%;
+    background-image: url("../assets/img/stadium_background.webp");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .ppicture img {
+    width: 45px;
+    height: 45px;
+  }
+  .PAC, .SHO, .PAS, .DRI, .DEF, .PHY
+  {
+    display: none;
+  }
 }
